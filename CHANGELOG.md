@@ -2,6 +2,20 @@
 
 ---
 
+# v1.7.0（2026-07-15）
+
+## 新增
+
+- 新增：Claude Code 侧 4 个 Skill 入口文件（`.claude/skills/design-analysis/`、`component-analysis/`、`component-catalog-maintenance/`、`project-onboarding/`），与 `core/ai/skills/` 共享逻辑兼容。
+
+## 改进
+
+- 改进：`.claude/CLAUDE.md` 升级为 v1.7，补充 Agent Router（Section 3）、Workflow 入口（Section 4）、Preset 加载规则（Section 5）、Extension 加载规则（Section 6）、`.veaw/` 上下文加载（Section 7）、Component Catalog 接入（Section 8）。
+- 改进：`.claude/CLAUDE.md` Skills 注册表从 5 个扩展至 9 个，与 `core/ai/skills/README.md` 对齐。
+- 改进：`core/ai/skills/project-onboarding.md` 执行流程第 1 步由 Codex 偏向改为工具中性表述，同时列明 Codex / Claude Code / 通用规则三种读取路径。
+
+---
+
 # v1.6.0（2026-07-15）
 
 ## 新增

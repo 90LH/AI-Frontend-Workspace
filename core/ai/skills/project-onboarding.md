@@ -31,7 +31,10 @@
 
 ## 执行流程
 
-1. 读取 `.codex/AGENTS.md` 的 Skill Registry 和 Workflow 入口。
+1. 读取当前工具的入口规则：
+   - Codex：读取 `.codex/AGENTS.md` 的 Skill Registry 和 Workflow 入口
+   - Claude Code：读取 `.claude/CLAUDE.md` 的 Skill Registry 和 Workflow 入口
+   - 通用规则：读取 `core/AGENTS.md`
 2. 读取 `core/ai/workflows/project-onboarding.md`。
 3. 确认目标项目路径和用户约束。
 4. 优先使用 GitNexus 检查目标项目是否已索引；未索引时说明并降级。
