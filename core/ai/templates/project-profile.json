@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0",
+  "project": {
+    "name": "<project-name>",
+    "root": "<absolute-project-root>",
+    "repository": "<git-remote-or-local-repo>",
+    "lastVerified": "YYYY-MM-DD",
+    "verificationSource": [
+      "GitNexus | rg | file-read | user-provided"
+    ]
+  },
+  "stack": {
+    "framework": "<Vue3 | Nuxt3 | Electron | React18 | unknown>",
+    "language": "TypeScript",
+    "builder": "<Vite | Nuxt | Vite + electron-builder | unknown>",
+    "packageManager": "<pnpm | npm | yarn | bun | unknown>",
+    "uiLibrary": "<Element Plus | Vant | Ant Design Vue | custom | unknown>",
+    "router": "<Vue Router | file-system routing | React Router | none | unknown>",
+    "stateManagement": "<Pinia | Vuex | Zustand | none | unknown>",
+    "testTools": [
+      "<Vitest | Jest | Cypress | Playwright | unknown>"
+    ]
+  },
+  "activation": {
+    "preset": {
+      "name": "<vue-admin | vue-h5 | nuxt | react-admin | electron | pending>",
+      "confidence": "<high | medium | low>",
+      "selectionReason": "<auto | userOverride | pending>",
+      "evidence": [
+        "<file-or-dependency-evidence>"
+      ],
+      "conflicts": [
+        "<conflict-or-empty>"
+      ]
+    },
+    "extensions": [
+      {
+        "name": "<design | component-intelligence>",
+        "enabled": false,
+        "reason": "<activation-reason>"
+      }
+    ]
+  },
+  "paths": {
+    "source": "<src-or-renderer-path>",
+    "components": [
+      "<component-directory>"
+    ],
+    "views": [
+      "<views-or-pages-directory>"
+    ],
+    "router": "<router-directory-or-file>",
+    "stores": "<stores-directory>",
+    "api": "<api-directory>",
+    "composables": "<composables-directory>",
+    "tests": [
+      "<test-directory>"
+    ],
+    "componentCatalog": "component-catalog/"
+  },
+  "mcp": {
+    "gitnexus": {
+      "status": "<indexed | not-indexed | unavailable | unknown>",
+      "fallback": "<none | rg-and-file-read>"
+    },
+    "context7": {
+      "status": "<available | unavailable | unknown>"
+    },
+    "playwright": {
+      "status": "<available | unavailable | unknown>"
+    }
+  },
+  "notes": [
+    "Only project-level facts belong in this file.",
+    "Do not copy this filled file into VEAW core."
+  ]
+}

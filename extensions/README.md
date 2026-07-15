@@ -14,7 +14,8 @@
 | `testing/` | 单元测试和 E2E 测试工作流 | 待创建 |
 | `performance/` | 性能优化分析和建议工作流 | 待创建 |
 | `auth/` | 认证授权模块开发规范 | 待创建 |
-| `design/` | 设计稿转代码工作流（Figma、Design Token、Component Mapping） | 待创建 |
+| `design/` | 设计稿转代码工作流（Figma、Design Token、Component Mapping） | 已创建 |
+| `component-intelligence/` | 组件资产盘点、组件映射、Component Catalog 维护 | 已创建 |
 
 ---
 
@@ -58,6 +59,25 @@ codex
 只有存在 `extensions/<name>/EXTENSION.md` 时，扩展才视为已启用。
 
 `extensions/README.md` 中的规划项不等于已启用规则，Codex 不应基于规划项推断具体行为。
+
+---
+
+## Project Onboarding 中的扩展激活
+
+真实项目接入时，扩展按需求叠加：
+
+| 条件 | 推荐扩展 |
+|------|----------|
+| 存在 Figma、截图、Design Token、页面还原或设计组件映射需求 | `design/` |
+| 存在组件盘点、组件复用、组件映射、Component Catalog 或组件治理需求 | `component-intelligence/` |
+
+激活规则：
+
+1. 只有存在 `extensions/<name>/EXTENSION.md` 时才允许激活。
+2. 扩展可同时启用，但不得修改主 Preset 的技术栈判断。
+3. 扩展只保存团队级可复用规则，不保存真实项目组件清单或业务配置。
+4. 真实项目级知识写入目标项目 `.veaw/` 与 `component-catalog/`。
+5. Component Catalog 首次接入流程见 `extensions/component-intelligence/project-catalog-onboarding.md`。
 
 ---
 

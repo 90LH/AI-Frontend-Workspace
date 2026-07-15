@@ -25,6 +25,10 @@ core/CODEX.md
   ↓
 core/AGENTS.md
   ↓
+目标项目 .veaw/project.json（如存在）
+  ↓
+目标项目 .veaw/context.md（如存在）
+  ↓
 Agent
   ↓
 Skill
@@ -45,6 +49,7 @@ MCP
 | `.codex/AGENTS.md` | Codex Agent 入口、Skill Router、MCP 优先级 |
 | `core/CODEX.md` | Codex 专属执行规则 |
 | `core/AGENTS.md` | 工具无关的通用开发原则 |
+| 目标项目 `.veaw/` | 项目级 Profile、Context、Preset 和 Extension 激活状态 |
 | `core/ai/agents/` | Designer、Component Analyst、Architect、Developer、Reviewer 角色定义 |
 | `core/ai/skills/` | Claude 与 Codex 共享 Skill 定义 |
 | `core/ai/workflows/` | 标准任务流程 |
@@ -54,6 +59,7 @@ Agent 调度由 `.codex/AGENTS.md` 负责：
 
 | 任务类型 | Agent 调度 |
 |----------|------------|
+| 项目接入 | Architect -> Project Onboarding -> Component Analyst（仅在需要 Catalog 时）-> Reviewer |
 | 需求分析 | Architect |
 | 设计任务 | Designer -> Architect -> Developer -> Reviewer |
 | 组件智能 | Component Analyst -> Architect -> Developer（仅在需要实现时）-> Reviewer |
@@ -115,6 +121,16 @@ Codex 收到 Skill 任务时：
 7. 按 Skill 的「输出格式」总结
 
 Codex 不直接修改 `.claude/skills/*/SKILL.md`，除非用户明确要求维护 Claude 配置。
+
+Project Onboarding 任务应读取：
+
+1. `core/ai/skills/project-onboarding.md`
+2. `core/ai/workflows/project-onboarding.md`
+3. `core/ai/templates/project-profile.json`
+4. `core/ai/templates/project-context.md`
+5. 必要时读取 `extensions/component-intelligence/project-catalog-onboarding.md`
+
+真实项目级事实只写入目标项目 `.veaw/` 与 `component-catalog/`。`core/` 只保存通用机制、规则和模板。
 
 ---
 

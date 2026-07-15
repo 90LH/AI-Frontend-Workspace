@@ -2,6 +2,26 @@
 
 ---
 
+# v1.6.0（2026-07-15）
+
+## 新增
+
+- 新增：Project Onboarding 标准工作流，用于真实项目接入、技术栈识别、Preset Activation、Extension Activation 和项目级上下文建立。
+- 新增：Project Onboarding Skill，用于执行真实项目接入流程。
+- 新增：项目级 Profile / Context 模板，用于目标项目 `.veaw/` 知识层。
+- 新增：Component Intelligence 的真实项目 Catalog 接入说明，用于首次生成和持续维护目标项目 `component-catalog/`。
+- 新增：Vue Project Onboarding 示例文档。
+
+## 改进
+
+- 改进：Codex Agent Router、Skill Registry 和 Workflow 入口注册 Project Onboarding。
+- 改进：补充 Preset 自动选择、冲突处理和 Extension 激活规则。
+- 改进：明确真实项目级知识写入目标项目 `.veaw/` 与 `component-catalog/`，不写入 VEAW core。
+- 改进：修正 examples 中过期的 `core/presets/` 路径说明。
+- 改进：补充 Claude Code 与 Codex 的项目级上下文兼容边界。
+
+---
+
 # v1.5.0（2026-07-15）
 
 ## 新增

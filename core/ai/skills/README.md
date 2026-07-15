@@ -24,6 +24,7 @@ Claude        Codex
 
 | Skill | 说明 |
 |-------|------|
+| [project-onboarding](project-onboarding.md) | 真实项目接入、Preset Activation、Extension Activation 与项目级上下文建立 |
 | [design-analysis](design-analysis.md) | 设计稿分析与 Design-to-Code 任务拆解 |
 | [component-analysis](component-analysis.md) | 组件资产分析与复用决策建议 |
 | [component-catalog-maintenance](component-catalog-maintenance.md) | 组件资产目录维护与一致性校验 |
@@ -51,3 +52,10 @@ Claude        Codex
 - MCP 要求
 - 输出格式
 - 注意事项
+
+## Project Onboarding 兼容边界
+
+- `project-onboarding` 是 core 通用 Skill，Codex 通过 `.codex/AGENTS.md` 注册调用。
+- Claude Code 不会自动读取 core 新 Skill；如需 Claude 自动识别，应新增 `.claude/skills/project-onboarding/SKILL.md` 并在 `.claude/CLAUDE.md` 注册。
+- 未新增 Claude 专用 Skill 前，Claude 可通过目标项目 `.veaw/context.md` 和 core 通用文档读取项目级上下文。
+- 不覆盖 `.claude/skills/*/SKILL.md`。

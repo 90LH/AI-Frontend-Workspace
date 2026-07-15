@@ -1,59 +1,91 @@
 # 使用示例
 
-本目录包含将 VEAW 工作流接入真实项目的完整示例。
+本目录包含将 VEAW 工作流接入真实项目的示例说明。
 
 ---
 
 ## 目录结构
 
-```
+```text
 examples/
-└── vue-admin-quickstart/   ← 以 Vue3 后台项目为例
-    ├── README.md            ← 接入步骤说明
-    └── ...
+└── vue-project-onboarding/
+    └── README.md
 ```
 
 ---
 
-## 快速接入步骤
+## 推荐接入方式
 
-### 1. 复制 AI 工程目录到你的项目
+真实项目接入应使用 Project Onboarding 流程：
 
-```bash
-# 进入你的 Vue3 项目根目录
-cd your-vue-project
+1. 识别目标项目技术栈和目录结构
+2. 选择一个主 Preset
+3. 按需激活 Extension
+4. 在目标项目创建 `.veaw/project.json` 与 `.veaw/context.md`
+5. 在目标项目创建或维护 `component-catalog/`
 
-# 复制 AI 配置
-cp -r path/to/veaw/.claude ./.claude
-cp -r path/to/veaw/.codex ./.codex
-cp -r path/to/veaw/.mcp  ./.mcp
-cp -r path/to/veaw/core  ./core
+相关文件：
+
+- `core/ai/workflows/project-onboarding.md`
+- `core/ai/skills/project-onboarding.md`
+- `core/ai/templates/project-profile.json`
+- `core/ai/templates/project-context.md`
+- `extensions/component-intelligence/project-catalog-onboarding.md`
+- `examples/vue-project-onboarding/README.md`
+
+---
+
+## Preset 路径
+
+Preset 位于 VEAW 根目录：
+
+```text
+presets/vue-admin/
+presets/vue-h5/
+presets/nuxt/
+presets/react-admin/
+presets/electron/
 ```
 
-### 2. 选择并激活预设
+不要使用旧路径 `core/presets/`。
 
-```bash
-# 后台管理项目
-cp core/presets/vue-admin/AGENTS.md core/AGENTS.preset.md
+---
 
-# H5 移动端项目
-cp core/presets/vue-h5/AGENTS.md core/AGENTS.preset.md
+## 项目级知识存放
+
+真实项目事实只写入目标项目：
+
+```text
+.veaw/
+├── project.json
+└── context.md
+
+component-catalog/
+├── index.md
+├── components/
+├── snapshots/
+└── CHANGELOG.md
 ```
 
-### 3. 建立 GitNexus 索引（需要 GitNexus 已安装）
+不要把目标项目真实配置、组件清单或业务知识写入 VEAW `core/`。
+
+---
+
+## MCP 建议
+
+优先使用 GitNexus：
 
 ```bash
 gitnexus index .
 ```
 
-### 4. 验证 Skills 已加载
-
-在 Claude Code 中输入 `/vue-page-create`，确认 Skill 被识别。
+目标项目未索引时，应明确降级为 `rg --files`、配置文件读取、目录扫描和 imports 分析。
 
 ---
 
-## 最佳实践
+## Claude 与 Codex 兼容
 
-- 项目接入后，先运行 GitNexus 索引，AI 才能准确分析代码关系
-- `core/docs/` 中的规范文档按实际项目调整（目录结构、命名规范）
-- 团队成员共享同一份 AI 配置，保持 AI 行为一致
+- Codex 通过 `.codex/AGENTS.md` 的 Skill Registry 调用 core 通用 Skill。
+- Claude Code 通过 `.claude/CLAUDE.md` 和 `.claude/skills/*/SKILL.md` 工作。
+- 不覆盖 `.claude/skills/*/SKILL.md`。
+- 如需 Claude 自动识别新增 Skill，应新增 Claude 专用 Skill 并在 `.claude/CLAUDE.md` 注册。
