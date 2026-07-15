@@ -1,5 +1,20 @@
 # Changelog
 
+## v1.4.0 - 2026-07-15
+
+### 新增
+
+- 新增：组件资产分析 Agent，用于识别项目中可复用的组件。
+- 新增：组件分析 Skill，用于输出组件资产范围、组件分类、接口摘要、引用关系和相似组件。
+- 新增：组件智能工作流，串联组件分析、架构评估、开发与审查。
+- 新增：组件智能扩展，用于沉淀组件资产盘点、组件映射和组件复用决策规则。
+
+### 改进
+
+- 改进：Codex Agent Router 增加组件资产、组件盘点、组件分析、组件映射、组件复用、组件库、Component Catalog、Component Intelligence 任务路由。
+- 改进：Codex 核心规则增加 Component Intelligence 调度说明。
+- 改进：共享 Skill 索引增加 component-analysis。
+
 ## v1.3.0
 
 Added:

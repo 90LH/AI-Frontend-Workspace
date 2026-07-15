@@ -25,6 +25,7 @@ Claude        Codex
 | Skill | 说明 |
 |-------|------|
 | [design-analysis](design-analysis.md) | 设计稿分析与 Design-to-Code 任务拆解 |
+| [component-analysis](component-analysis.md) | 组件资产分析与复用决策建议 |
 | [vue-page-create](vue-page-create.md) | Vue3 企业级页面开发流程 |
 | [component-create](component-create.md) | Vue3 可复用组件开发规范 |
 | [api-development](api-development.md) | 前端 API 接口开发规范 |

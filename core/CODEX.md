@@ -45,7 +45,7 @@ MCP
 | `.codex/AGENTS.md` | Codex Agent 入口、Skill Router、MCP 优先级 |
 | `core/CODEX.md` | Codex 专属执行规则 |
 | `core/AGENTS.md` | 工具无关的通用开发原则 |
-| `core/ai/agents/` | Architect、Developer、Reviewer 角色定义 |
+| `core/ai/agents/` | Designer、Component Analyst、Architect、Developer、Reviewer 角色定义 |
 | `core/ai/skills/` | Claude 与 Codex 共享 Skill 定义 |
 | `core/ai/workflows/` | 标准任务流程 |
 | `core/ai/templates/` | 可复用代码模板 |
@@ -56,6 +56,7 @@ Agent 调度由 `.codex/AGENTS.md` 负责：
 |----------|------------|
 | 需求分析 | Architect |
 | 设计任务 | Designer -> Architect -> Developer -> Reviewer |
+| 组件智能 | Component Analyst -> Architect -> Developer（仅在需要实现时）-> Reviewer |
 | 新功能开发 | Architect -> Developer -> Reviewer |
 | Bug 修复 | Developer -> Reviewer |
 | 代码审查 | Reviewer |
