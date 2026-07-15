@@ -1,5 +1,22 @@
 # Changelog
 
+## v1.3.0
+
+Added:
+
+- Design Agent
+- Design Analysis Skill
+- Design-to-Code Workflow
+- Design Extension
+
+
+Architecture:
+
+- Designer Agent
+- Architect Agent
+- Developer Agent
+- Reviewer Agent
+
 ## v1.2.0
 
 Added:

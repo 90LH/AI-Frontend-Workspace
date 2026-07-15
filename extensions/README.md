@@ -14,6 +14,7 @@
 | `testing/` | 单元测试和 E2E 测试工作流 | 待创建 |
 | `performance/` | 性能优化分析和建议工作流 | 待创建 |
 | `auth/` | 认证授权模块开发规范 | 待创建 |
+| `design/` | 设计稿转代码工作流（Figma、Design Token、Component Mapping） | 待创建 |
 
 ---
 
@@ -39,6 +40,8 @@ preset
   ↓
 extension
   ↓
+agent
+  ↓
 codex
 ```
 
@@ -49,11 +52,44 @@ codex
 | core | `core/AGENTS.md`、`core/CODEX.md` | 通用开发原则和 Codex 专属规则 |
 | preset | `presets/<preset>/AGENTS.md` 或 `preset.json` | 项目类型规则 |
 | extension | `extensions/<name>/EXTENSION.md` | 专项能力增补 |
+| agent | `core/ai/agents/*` | 专项任务的 Agent 角色 |
 | codex | `.codex/AGENTS.md` | Codex Agent 入口、Skill Router、MCP 优先级 |
 
 只有存在 `extensions/<name>/EXTENSION.md` 时，扩展才视为已启用。
 
 `extensions/README.md` 中的规划项不等于已启用规则，Codex 不应基于规划项推断具体行为。
+
+---
+
+## 设计扩展方向
+
+设计扩展用于把设计输入接入 Agent 工作流，常见方向包括：
+
+| 能力 | 说明 |
+|------|------|
+| Figma | 通过设计输入 MCP 获取页面结构、尺寸、组件和样式信息 |
+| Design Token | 提取颜色、字体、间距、圆角、阴影等语义化 token 建议 |
+| Component Mapping | 将设计组件映射到项目已有组件、业务组件或待新增组件 |
+
+设计扩展加载关系：
+
+```text
+core
+  ↓
+preset
+  ↓
+extension
+  ↓
+agent
+```
+
+当前 Design-to-Code 基础能力位于：
+
+- `core/ai/agents/designer.md`
+- `core/ai/workflows/design-to-code.md`
+- `core/ai/skills/design-analysis.md`
+
+如果未来创建 `extensions/design/EXTENSION.md`，应只补充项目或团队特有的设计规则，不重复 core 中的通用 Agent、Workflow 和 Skill。
 
 ---
 

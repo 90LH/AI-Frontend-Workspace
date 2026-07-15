@@ -55,6 +55,7 @@ Agent 调度由 `.codex/AGENTS.md` 负责：
 | 任务类型 | Agent 调度 |
 |----------|------------|
 | 需求分析 | Architect |
+| 设计任务 | Designer -> Architect -> Developer -> Reviewer |
 | 新功能开发 | Architect -> Developer -> Reviewer |
 | Bug 修复 | Developer -> Reviewer |
 | 代码审查 | Reviewer |
