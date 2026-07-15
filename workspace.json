@@ -1,0 +1,7 @@
+{
+  "name": "VEAW",
+  "version": "1.0.0",
+  "framework": "Vue3",
+  "language": "TypeScript",
+  "builder": "Vite"
+}
