@@ -29,9 +29,11 @@ core 提供通用能力，extension 只描述团队或项目特有规则。
 2. 读取 Component Analyst：`core/ai/agents/component-analyst.md`
 3. 读取组件智能工作流：`core/ai/workflows/component-intelligence.md`
 4. 读取组件分析 Skill：`core/ai/skills/component-analysis.md`
-5. 按项目预设和团队约定补充组件分类规则
-6. 输出组件映射建议和复用决策建议
-7. 将结果交给 Architect、Developer、Reviewer 继续执行
+5. 维护 Catalog 时读取 `core/ai/workflows/component-catalog-maintenance.md`
+6. 维护 Catalog 时读取 `core/ai/skills/component-catalog-maintenance.md`
+7. 按项目预设和团队约定补充组件分类规则
+8. 输出组件映射建议和复用决策建议
+9. 将结果交给 Architect、Developer、Reviewer 继续执行
 
 ## MCP要求
 
@@ -46,6 +48,7 @@ core 提供通用能力，extension 只描述团队或项目特有规则。
 ## Skill调用规则
 
 - 默认使用 `core/ai/skills/component-analysis.md`
+- Catalog 维护使用 `core/ai/skills/component-catalog-maintenance.md`
 - 新组件实现仍使用 `core/ai/skills/component-create.md`
 - 设计组件映射可结合 `core/ai/skills/design-analysis.md`
 - 审查阶段使用 `core/ai/skills/code-review.md`
@@ -53,6 +56,7 @@ core 提供通用能力，extension 只描述团队或项目特有规则。
 ## Template使用规则
 
 - 本扩展不复制 Template
+- Catalog 条目参考 `core/ai/templates/component-catalog.md`
 - 组件实现参考 `core/ai/templates/vue-component.vue`
 - 页面私有组件组织参考 `core/ai/templates/vue-page.vue`
 - 逻辑抽离参考 `core/ai/templates/composable.ts`
@@ -82,5 +86,6 @@ core 提供通用能力，extension 只描述团队或项目特有规则。
 - 不修改 `.mcp/mcp.json`
 - 不修改 Claude Code 配置
 - 不修改业务代码
+- Component Catalog 是源码索引与摘要，不替代源码事实
 - Component Mapping 应优先匹配项目已有组件
 - 分析型结果不能直接替代实现型 Skill

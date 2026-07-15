@@ -1,79 +1,110 @@
-# Changelog
+# 更新日志（Changelog）
 
-## v1.4.0 - 2026-07-15
+---
 
-### 新增
+# v1.5.0（2026-07-15）
 
-- 新增：组件资产分析 Agent，用于识别项目中可复用的组件。
-- 新增：组件分析 Skill，用于输出组件资产范围、组件分类、接口摘要、引用关系和相似组件。
-- 新增：组件智能工作流，串联组件分析、架构评估、开发与审查。
-- 新增：组件智能扩展，用于沉淀组件资产盘点、组件映射和组件复用决策规则。
+## 新增
 
-### 改进
+- 新增：组件资产目录，用于沉淀已验证的项目组件信息。
+- 新增：组件目录维护 Skill，用于校验并维护组件资产索引。
+- 新增：组件目录维护工作流，用于在组件变更后校验并更新资产索引。
+- 新增：组件资产目录模板，用于统一组件条目的数据结构。
+- 新增：组件智能扩展规则，用于描述团队级 Catalog 分类、映射和维护约定。
+- 新增：首次组件资产盘点快照，记录当前仓库未发现真实业务组件目录。
 
-- 改进：Codex Agent Router 增加组件资产、组件盘点、组件分析、组件映射、组件复用、组件库、Component Catalog、Component Intelligence 任务路由。
-- 改进：Codex 核心规则增加 Component Intelligence 调度说明。
-- 改进：共享 Skill 索引增加 component-analysis。
+## 改进
 
-## v1.3.0
+- 改进：Component Analyst 增加读取 Catalog、校验 Catalog、输出差异报告和触发更新建议的职责。
+- 改进：Codex Agent Router 增加组件目录、组件资产更新、组件资产校验、组件快照、组件索引、组件变更记录任务路由。
+- 改进：Codex 核心规则增加组件目录维护调度说明。
+- 改进：共享 Skill 索引增加 component-catalog-maintenance。
 
-Added:
+---
 
-- Design Agent
-- Design Analysis Skill
-- Design-to-Code Workflow
-- Design Extension
+# v1.4.0（2026-07-15）
 
+## 新增
 
-Architecture:
+- 新增：**组件资产分析 Agent**，用于识别项目中可复用的组件资源。
+- 新增：**组件分析 Skill**，用于输出组件资产范围、组件分类、组件接口摘要、引用关系以及相似组件分析。
+- 新增：**组件智能工作流（Component Intelligence Workflow）**，将组件分析、架构评估、开发实现和代码审查串联为统一流程。
+- 新增：**组件智能扩展（Component Intelligence Extension）**，用于沉淀组件资产盘点、组件映射以及组件复用决策规则。
 
-- Designer Agent
-- Architect Agent
-- Developer Agent
-- Reviewer Agent
+## 改进
 
-## v1.2.0
+- 改进：**Codex Agent Router** 新增组件资产、组件盘点、组件分析、组件映射、组件复用、组件库（Component Catalog）以及组件智能（Component Intelligence）等任务的自动路由能力。
+- 改进：完善 **Codex 核心规则（Core Rules）**，增加 Component Intelligence 的调度策略和执行说明。
+- 改进：更新共享 Skill 索引，新增 **component-analysis** 能力模块。
 
-Added:
+---
 
-- Codex Agent Router
-- Architect Agent
-- Developer Agent
-- Reviewer Agent
-- Workflow Orchestration
-- Shared AI Skill Layer
-- MCP Priority Execution
+# v1.3.0
 
-Improved:
+## 新增
 
-- Claude/Codex shared architecture
-- Agent execution consistency
+- 新增：**设计 Agent（Design Agent）**，负责设计分析及设计规范输出。
+- 新增：**设计分析 Skill（Design Analysis Skill）**，用于解析设计稿、页面结构和组件关系。
+- 新增：**Design-to-Code 工作流**，支持从设计稿到代码的自动转换流程。
+- 新增：**设计扩展（Design Extension）**，提供设计规范与开发规范的统一能力。
 
-## v1.0.0 - 2026-07-15
+## 架构调整
 
-### Added
+企业级 AI Agent 架构升级为：
 
-- 初始化 AI Workspace
-- Claude Code Skills
-- Codex AGENTS
-- MCP 配置（GitNexus、Context7、Playwright）
-- Core AI Rules
-- Vue Admin Preset
-- Vue H5 Preset
-- Nuxt Preset
-- React Admin Preset
-- Electron Preset
+- 设计 Agent（Designer Agent）
+- 架构 Agent（Architect Agent）
+- 开发 Agent（Developer Agent）
+- 代码审查 Agent（Reviewer Agent）
 
-### Features
+通过多 Agent 协作，实现设计、架构、开发与审查全流程覆盖。
 
-- AI 工作流
-- 页面生成
-- API 开发
-- Bug 修复
-- Code Review
+---
 
-### Docs
+# v1.2.0
 
-- Architecture
-- Coding Standard
-- Directory Guide
+## 新增
+
+- 新增：**Codex Agent Router**，统一负责 Agent 调度和任务分发。
+- 新增：**架构 Agent（Architect Agent）**。
+- 新增：**开发 Agent（Developer Agent）**。
+- 新增：**代码审查 Agent（Reviewer Agent）**。
+- 新增：**Workflow Orchestration（工作流编排）**，支持多 Agent 自动协作。
+- 新增：**共享 AI Skill Layer（共享能力层）**，统一管理 AI Skills。
+- 新增：**MCP Priority Execution（MCP 优先执行机制）**，优先调用已配置的 MCP 服务。
+
+## 改进
+
+- 优化 Claude Code 与 Codex 的共享架构，提高不同 AI 工具之间的一致性。
+- 优化多 Agent 的执行流程，提升任务调度稳定性和协作效率。
+
+---
+
+# v1.0.0（2026-07-15）
+
+## 新增
+
+- 初始化 AI Workspace 企业级工作区。
+- 新增 Claude Code Skills 能力体系。
+- 新增 Codex AGENTS 企业级规范。
+- 新增 MCP 配置（GitNexus、Context7、Playwright）。
+- 新增 Core AI Rules（AI 核心开发规范）。
+- 新增 Vue Admin 企业后台预设。
+- 新增 Vue H5 移动端预设。
+- 新增 Nuxt 项目预设。
+- 新增 React Admin 企业后台预设。
+- 新增 Electron 桌面应用预设。
+
+## 功能
+
+- AI 工作流（AI Workflow）
+- 页面自动生成
+- API 自动开发
+- Bug 智能修复
+- Code Review（代码审查）
+
+## 文档
+
+- 架构设计文档（Architecture）
+- 编码规范（Coding Standard）
+- 项目目录指南（Directory Guide）

@@ -73,6 +73,7 @@ Codex 必须先判断任务类型，再选择 Agent。
 | 需求分析、架构理解、技术方案 | Architect |
 | 设计稿、UI、Figma、页面还原、视觉还原、截图还原 | Designer -> design-to-code workflow -> Architect -> Developer -> Reviewer |
 | 组件资产、组件盘点、组件分析、组件映射、组件复用、组件库、Component Catalog、Component Intelligence | Component Analyst -> component-intelligence workflow -> Architect -> Developer（仅在需要实现时）-> Reviewer |
+| 组件目录、组件资产更新、组件资产校验、组件快照、组件索引、组件变更记录 | Component Analyst -> component-catalog-maintenance workflow -> GitNexus -> component-analysis Skill -> Catalog 差异报告 -> Architect -> Developer（仅在需要实现时）-> Reviewer |
 | 新功能、页面、组件、接口开发 | Architect -> feature-development workflow -> Developer -> Reviewer |
 | Bug 定位与修复 | Developer -> bug-fix workflow -> Reviewer |
 | 代码审查、风险检查、质量验证 | Reviewer |
@@ -106,6 +107,7 @@ Agent 定义文件：
 |-------|----------|----------|
 | design-analysis | `/design-analysis` | `core/ai/skills/design-analysis.md` |
 | component-analysis | `/component-analysis` | `core/ai/skills/component-analysis.md` |
+| component-catalog-maintenance | `/component-catalog-maintenance` | `core/ai/skills/component-catalog-maintenance.md` |
 | vue-page-create | `/vue-page-create` | `core/ai/skills/vue-page-create.md` |
 | component-create | `/component-create` | `core/ai/skills/component-create.md` |
 | api-development | `/api-development` | `core/ai/skills/api-development.md` |
@@ -139,6 +141,7 @@ Claude Code 仍保留 `.claude/skills/*/SKILL.md` 的调用方式。Codex 不修
 |------|----------|
 | 设计稿、UI、Figma、页面还原、视觉还原、截图还原 | `core/ai/workflows/design-to-code.md` |
 | 组件资产、组件盘点、组件分析、组件映射、组件复用、组件库、Component Catalog、Component Intelligence | `core/ai/workflows/component-intelligence.md` |
+| 组件目录、组件资产更新、组件资产校验、组件快照、组件索引、组件变更记录 | `core/ai/workflows/component-catalog-maintenance.md` |
 | 新功能、页面、组件、接口 | `core/ai/workflows/feature-development.md` |
 | Bug 定位与修复 | `core/ai/workflows/bug-fix.md` |
 
@@ -148,6 +151,7 @@ Agent 编排：
 
 - 设计转代码：Designer -> design-to-code workflow -> Architect -> Developer -> Reviewer
 - 组件智能：Component Analyst -> component-intelligence workflow -> Architect -> Developer（仅在需要实现时）-> Reviewer
+- 组件目录维护：Component Analyst -> component-catalog-maintenance workflow -> GitNexus -> component-analysis Skill -> Catalog 差异报告 -> Architect -> Developer（仅在需要实现时）-> Reviewer
 - 功能开发：Architect -> feature-development workflow -> Developer -> Reviewer
 - Bug 修复：Developer -> bug-fix workflow -> Reviewer
 - 代码审查：Reviewer -> code-review Skill
