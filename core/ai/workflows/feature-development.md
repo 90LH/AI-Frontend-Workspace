@@ -4,6 +4,20 @@
 
 用户要求实现新功能时（新页面、新组件、新接口等）。
 
+## Agent 编排
+
+```text
+Architect
+  ↓
+Developer
+  ↓
+Reviewer
+```
+
+- Architect：理解需求、分析架构、输出可执行方案和风险评估
+- Developer：选择 Skill 和 Template，按方案实现并验证
+- Reviewer：检查影响范围、规范、风险和测试建议
+
 ## 完整流程
 
 ### 第一步：理解需求

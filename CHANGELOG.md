@@ -1,5 +1,22 @@
 # Changelog
 
+## v1.2.0
+
+Added:
+
+- Codex Agent Router
+- Architect Agent
+- Developer Agent
+- Reviewer Agent
+- Workflow Orchestration
+- Shared AI Skill Layer
+- MCP Priority Execution
+
+Improved:
+
+- Claude/Codex shared architecture
+- Agent execution consistency
+
 ## v1.0.0 - 2026-07-15
 
 ### Added
