@@ -1,0 +1,29 @@
+{
+  "name": "vue-h5",
+  "displayName": "Vue3 移动端 H5",
+  "version": "1.0.0",
+  "extends": "../../workspace.json",
+  "framework": "Vue3",
+  "language": "TypeScript",
+  "builder": "Vite",
+  "uiLibrary": "Vant",
+  "features": [
+    "移动端适配（rem/vw）",
+    "微信 JSSDK 集成（可选）",
+    "底部导航栏",
+    "页面切换动画",
+    "PWA 支持（可选）"
+  ],
+  "dependencies": {
+    "vant": "latest",
+    "pinia": "latest",
+    "vue-router": "latest",
+    "axios": "latest"
+  },
+  "structure": {
+    "views": "src/views/",
+    "stores": "src/stores/",
+    "api": "src/api/",
+    "router": "src/router/"
+  }
+}

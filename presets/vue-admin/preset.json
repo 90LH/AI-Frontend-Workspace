@@ -1,0 +1,30 @@
+{
+  "name": "vue-admin",
+  "displayName": "Vue3 后台管理系统",
+  "version": "1.0.0",
+  "extends": "../../workspace.json",
+  "framework": "Vue3",
+  "language": "TypeScript",
+  "builder": "Vite",
+  "uiLibrary": "Element Plus",
+  "features": [
+    "路由权限控制",
+    "动态菜单",
+    "多 Tab 页签",
+    "暗色主题",
+    "国际化（可选）"
+  ],
+  "dependencies": {
+    "element-plus": "latest",
+    "pinia": "latest",
+    "vue-router": "latest",
+    "axios": "latest"
+  },
+  "structure": {
+    "layouts": "src/layouts/",
+    "views": "src/views/",
+    "stores": "src/stores/",
+    "api": "src/api/",
+    "router": "src/router/"
+  }
+}

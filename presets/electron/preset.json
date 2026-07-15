@@ -1,0 +1,27 @@
+{
+  "name": "electron",
+  "displayName": "Electron + Vue3 桌面应用",
+  "version": "1.0.0",
+  "extends": "../../workspace.json",
+  "framework": "Vue3 + Electron",
+  "language": "TypeScript",
+  "builder": "Vite + electron-builder",
+  "features": [
+    "主进程 / 渲染进程分离",
+    "IPC 通信封装",
+    "本地文件系统访问",
+    "系统托盘",
+    "自动更新"
+  ],
+  "dependencies": {
+    "electron": "latest",
+    "electron-builder": "latest",
+    "vite-plugin-electron": "latest"
+  },
+  "structure": {
+    "main": "electron/main.ts（主进程）",
+    "preload": "electron/preload.ts（预加载脚本）",
+    "renderer": "src/（渲染进程，即 Vue3 应用）"
+  },
+  "notes": "主进程代码在 electron/ 目录，渲染进程代码在 src/ 目录。IPC 通信通过 preload.ts 暴露安全 API，不直接在渲染进程使用 require('electron')。"
+}

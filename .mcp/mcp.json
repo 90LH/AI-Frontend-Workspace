@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "gitnexus": {
+      "command": "gitnexus",
+      "args": ["mcp"],
+      "description": "Code graph analysis — symbol lookup, impact analysis, call chain tracing"
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"],
+      "description": "Official documentation queries — Vue3, Vite, Pinia, Vue Router, TypeScript"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"],
+      "description": "Browser verification — render check, interaction test, regression detection"
+    }
+  }
+}

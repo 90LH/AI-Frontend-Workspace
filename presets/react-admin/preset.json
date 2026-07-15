@@ -1,0 +1,23 @@
+{
+  "name": "react-admin",
+  "displayName": "React18 后台管理系统",
+  "version": "1.0.0",
+  "framework": "React18",
+  "language": "TypeScript",
+  "builder": "Vite",
+  "uiLibrary": "Ant Design",
+  "features": [
+    "路由权限控制",
+    "动态菜单",
+    "React Query 数据请求",
+    "Zustand 状态管理"
+  ],
+  "dependencies": {
+    "react": "^18.0.0",
+    "antd": "latest",
+    "react-router-dom": "latest",
+    "zustand": "latest",
+    "@tanstack/react-query": "latest"
+  },
+  "notes": "本预设使用 React18，与其他 Vue3 预设不同。编码规范参考 core/docs/coding-standard.md 的 TypeScript 部分，组件规范遵循 React 函数组件 + Hooks 模式。"
+}

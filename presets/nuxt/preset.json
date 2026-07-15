@@ -1,0 +1,21 @@
+{
+  "name": "nuxt",
+  "displayName": "Nuxt3 全栈应用",
+  "version": "1.0.0",
+  "extends": "../../workspace.json",
+  "framework": "Nuxt3",
+  "language": "TypeScript",
+  "builder": "Vite（内置）",
+  "features": [
+    "SSR / SSG / CSR 灵活切换",
+    "文件系统路由",
+    "Auto Import 组件和 Composables",
+    "服务端 API 路由",
+    "Nuxt Content（可选）"
+  ],
+  "dependencies": {
+    "nuxt": "latest",
+    "@pinia/nuxt": "latest"
+  },
+  "notes": "Nuxt3 使用文件系统路由，pages/ 目录下文件自动生成路由。服务端逻辑放在 server/api/ 目录。"
+}
