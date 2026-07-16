@@ -2,6 +2,25 @@
 
 ---
 
+# v1.11.0（2026-07-16）架构约束：Component Catalog 迁移至 .veaw/
+
+## 改进
+
+- 架构约束：目标项目 Component Catalog 路径由根目录 `component-catalog/` 统一迁移至 `.veaw/component-catalog/`，与 `.veaw/` 知识层保持同一容器，避免真实业务目录分散在项目根目录。
+- 改进：`core/ai/templates/project-profile.json` `paths.componentCatalog` 默认值由 `"component-catalog/"` 更新为 `".veaw/component-catalog/"`。
+- 改进：`core/ai/router.md` §7、§8-A L1 和降级兜底规则同步更新路径。
+- 改进：`core/ai/skills/`、`core/ai/workflows/`、`core/ai/agents/`、`extensions/component-intelligence/`、`examples/` 全部路径引用同步更新。
+- 改进：soybean-admin `.veaw/project.json` `paths.componentCatalog` 同步更新为 `".veaw/component-catalog/"`；`.veaw/context.md` 标注 Catalog 已生成。
+- 改进：`README.md` Roadmap 标记 Real Project Onboarding / Component Catalog 自动维护 / Incremental Cache 为 ✅。
+
+## 影响
+
+- 已接入目标项目的 `project.json` 需将 `paths.componentCatalog` 从 `"component-catalog/"` 更新为 `".veaw/component-catalog/"`。
+- 物理目录也需迁移：`mv component-catalog .veaw/component-catalog`（已对 soybean-admin 执行）。
+- `.claude/skills/*/SKILL.md` 中的旧路径引用不随此版本更改（约束：不修改 .claude/skills/ 入口文件）。
+
+---
+
 # v1.10.0（2026-07-16）Token Runtime Optimization
 
 ## 新增

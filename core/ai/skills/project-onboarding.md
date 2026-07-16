@@ -13,7 +13,7 @@
 - 需要选择 Vue Admin、Vue H5、Nuxt、React Admin 或 Electron Preset
 - 需要启用 Design 或 Component Intelligence Extension
 - 需要为目标项目创建 `.veaw/` Profile / Context
-- 需要初始化目标项目 `component-catalog/`
+- 需要初始化目标项目 `.veaw/component-catalog/`
 
 ## 输入要求
 
@@ -43,7 +43,7 @@
 7. 根据 Preset 自动选择规则输出候选、证据、冲突和最终选择。
 8. 根据 Extension 激活规则输出启用扩展。
 9. 参考 `core/ai/templates/project-profile.json` 与 `core/ai/templates/project-context.md` 创建或更新目标项目 `.veaw/` 项目级上下文。
-10. 若启用 Component Intelligence，读取 `extensions/component-intelligence/project-catalog-onboarding.md` 并建立或维护目标项目 `component-catalog/`。
+10. 若启用 Component Intelligence，读取 `extensions/component-intelligence/project-catalog-onboarding.md` 并建立或维护目标项目 `.veaw/component-catalog/`。
 11. 输出 Codex 与 Claude 的加载说明、MCP 状态、Catalog 状态和后续建议。
 
 ## MCP 要求

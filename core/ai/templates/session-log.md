@@ -5,7 +5,7 @@
 > **用途边界（重要）**
 > - 本文件只用于恢复上下文，**不是项目事实来源**。
 > - 项目事实 SSOT → `.veaw/project.json`
-> - 组件索引 SSOT → `component-catalog/catalog.json`
+> - 组件索引 SSOT → `.veaw/component-catalog/catalog.json`
 > - 最终事实 → 源码
 > - 本文件内容与 project.json 冲突时，以 project.json 为准。
 >

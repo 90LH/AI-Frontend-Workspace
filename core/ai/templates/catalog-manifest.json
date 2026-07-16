@@ -11,12 +11,12 @@
       "category": "<common | business | page-private | third-party-wrapper>",
       "lastVerified": "YYYY-MM-DD",
       "summary": "<one-line description>",
-      "entryFile": "component-catalog/components/<name>.md"
+      "entryFile": ".veaw/component-catalog/components/<name>.md"
     }
   ],
   "notes": [
     "This file is the machine-readable catalog index (SSOT for component asset queries).",
-    "component-catalog/index.md is the human-readable equivalent — keep both in sync.",
+    ".veaw/component-catalog/index.md is the human-readable equivalent — keep both in sync.",
     "catalogSnapshot.field in project.json points to this file's lastVerified for cache invalidation.",
     "Do not copy this filled file into VEAW core."
   ]

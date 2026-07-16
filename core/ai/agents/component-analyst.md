@@ -27,7 +27,7 @@ Component Analyst 不直接实现代码，输出组件资产报告，供 Archite
 ## 工作流程
 
 1. 理解组件需求、项目范围和分析目标
-2. 读取项目级 Component Catalog；默认路径为 `component-catalog/`
+2. 读取项目级 Component Catalog；默认路径为 `.veaw/component-catalog/`
 3. 优先使用 GitNexus 分析组件目录、引用关系、调用链、影响范围和相似组件
 4. GitNexus 不可用时，说明降级原因，并使用 `rg`、文件读取和 imports 分析
 5. 执行 `core/ai/skills/component-analysis.md`

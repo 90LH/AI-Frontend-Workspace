@@ -21,8 +21,7 @@ examples/
 1. 识别目标项目技术栈和目录结构
 2. 选择一个主 Preset
 3. 按需激活 Extension
-4. 在目标项目创建 `.veaw/project.json` 与 `.veaw/context.md`
-5. 在目标项目创建或维护 `component-catalog/`
+4. 在目标项目创建 `.veaw/project.json`、`.veaw/context.md` 和 `.veaw/component-catalog/`
 
 相关文件：
 
@@ -58,13 +57,12 @@ presets/electron/
 ```text
 .veaw/
 ├── project.json
-└── context.md
-
-component-catalog/
-├── index.md
-├── components/
-├── snapshots/
-└── CHANGELOG.md
+├── context.md
+└── component-catalog/
+    ├── index.md
+    ├── components/
+    ├── snapshots/
+    └── CHANGELOG.md
 ```
 
 不要把目标项目真实配置、组件清单或业务知识写入 VEAW `core/`。

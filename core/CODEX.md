@@ -101,7 +101,7 @@ Project Onboarding 任务应读取：
 4. `core/ai/templates/project-context.md`
 5. 必要时读取 `extensions/component-intelligence/project-catalog-onboarding.md`
 
-真实项目级事实只写入目标项目 `.veaw/` 与 `component-catalog/`。`core/` 只保存通用机制、规则和模板。
+真实项目级事实只写入目标项目 `.veaw/`（含 `.veaw/component-catalog/`）。`core/` 只保存通用机制、规则和模板。
 
 ---
 

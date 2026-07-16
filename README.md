@@ -51,8 +51,8 @@ project/
 │   │   └── extensions/
 │   └── docs/
 │
-├── .veaw/                 # 项目元数据（接入后生成）
-├── component-catalog/     # 组件目录（接入后生成）
+├── .veaw/                          # 项目元数据（接入后生成）
+│   └── component-catalog/          # 组件目录（接入后生成）
 └── README.md
 ```
 
@@ -113,7 +113,7 @@ GitNexus / Context7 / Playwright
 * ✅ Presets
 * ✅ Extensions
 * ✅ Project Onboarding
-* ⏳ Real Project Onboarding
-* ⏳ Component Catalog 自动维护
-* ⏳ Incremental Cache
+* ✅ Real Project Onboarding
+* ✅ Component Catalog 自动维护
+* ✅ Incremental Cache
 * ⏳ Context Index

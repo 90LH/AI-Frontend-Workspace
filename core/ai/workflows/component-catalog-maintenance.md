@@ -18,7 +18,7 @@
 | 输入 | 是否必须 | 说明 |
 |------|----------|------|
 | 维护事件 | 必须 | 新增、接口变更、迁移、删除、引用变化、校验 |
-| Catalog 路径 | 必须 | 项目级 `component-catalog/` |
+| Catalog 路径 | 必须 | 项目级 `.veaw/component-catalog/` |
 | 组件范围 | 必须 | 全项目、组件目录、页面模块、业务域或指定组件 |
 | 变更来源 | 可选 | diff、用户说明、设计输入、任务记录 |
 
@@ -48,7 +48,7 @@ Reviewer 校验影响范围与 Catalog 一致性
 
 执行步骤：
 
-1. 读取 `component-catalog/index.md`
+1. 读取 `.veaw/component-catalog/index.md`
 2. 读取相关组件条目和最近 snapshot
 3. 优先使用 GitNexus 校验源码路径、引用关系、影响范围和相似组件
 4. GitNexus 不可用时，说明原因，并使用 `rg`、imports 和文件读取降级

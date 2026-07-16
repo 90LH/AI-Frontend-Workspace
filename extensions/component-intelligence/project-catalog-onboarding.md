@@ -9,7 +9,7 @@
 ## 使用场景
 
 - 真实项目首次启用 `component-intelligence`
-- 目标项目需要创建 `component-catalog/`
+- 目标项目需要创建 `.veaw/component-catalog/`
 - 目标项目已有 Catalog，需要校验与源码是否一致
 - Design-to-Code 需要把设计组件映射到真实代码组件
 
@@ -38,10 +38,10 @@
    - 业务组件
    - 页面私有组件
    - 第三方封装组件
-5. 在目标项目根目录创建或更新：
+5. 在目标项目 `.veaw/` 下创建或更新：
 
 ```text
-component-catalog/
+.veaw/component-catalog/
 ├── index.md
 ├── components/
 ├── snapshots/
@@ -50,7 +50,7 @@ component-catalog/
 
 6. 组件条目结构参考 `core/ai/templates/component-catalog.md`。
 7. 不确定字段写“待验证”。
-8. 更新首次快照、`lastVerified` 和 `component-catalog/CHANGELOG.md`。
+8. 更新首次快照、`lastVerified` 和 `.veaw/component-catalog/CHANGELOG.md`。
 
 ## 持续维护流程
 
@@ -65,7 +65,7 @@ component-catalog/
 
 维护步骤：
 
-1. 读取目标项目 `component-catalog/index.md`、相关组件条目、最近 snapshot 和 `CHANGELOG.md`。
+1. 读取目标项目 `.veaw/component-catalog/index.md`、相关组件条目、最近 snapshot 和 `CHANGELOG.md`。
 2. 使用 GitNexus 校验源码事实和引用关系；不可用时降级到 `rg`、imports、文件读取。
 3. 调用 `core/ai/skills/component-analysis.md` 输出差异报告。
 4. 必要时调用 `core/ai/skills/component-catalog-maintenance.md` 更新 Catalog。
@@ -83,7 +83,7 @@ component-catalog/
 
 本文件负责：
 
-- 在真实目标项目中建立 `component-catalog/`
+- 在真实目标项目中建立 `.veaw/component-catalog/`
 - 维护组件资产条目、快照和变更记录
 - 确保 Catalog 与源码事实一致
 
@@ -118,7 +118,7 @@ component-catalog/
 
 ## 注意事项
 
-- 真实组件清单只写入目标项目 `component-catalog/`。
+- 真实组件清单只写入目标项目 `.veaw/component-catalog/`。
 - `core/` 只保存模板和通用机制。
 - `extensions/` 只保存团队级可叠加规则。
 - Catalog 是源码索引与摘要，不替代源码事实。

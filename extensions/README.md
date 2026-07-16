@@ -76,7 +76,7 @@ codex
 1. 只有存在 `extensions/<name>/EXTENSION.md` 时才允许激活。
 2. 扩展可同时启用，但不得修改主 Preset 的技术栈判断。
 3. 扩展只保存团队级可复用规则，不保存真实项目组件清单或业务配置。
-4. 真实项目级知识写入目标项目 `.veaw/` 与 `component-catalog/`。
+4. 真实项目级知识写入目标项目 `.veaw/`（含 `.veaw/component-catalog/`）。
 5. Component Catalog 首次接入流程见 `extensions/component-intelligence/project-catalog-onboarding.md`。
 
 ---

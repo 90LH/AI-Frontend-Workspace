@@ -20,15 +20,15 @@
 | 输入 | 是否必须 | 说明 |
 |------|----------|------|
 | 维护目标 | 必须 | 新增、更新、迁移、删除、校验、快照 |
-| Catalog 路径 | 必须 | 项目级 `component-catalog/` |
+| Catalog 路径 | 必须 | 项目级 `.veaw/component-catalog/` |
 | 组件范围 | 必须 | 全项目、组件目录、业务域、页面模块或指定组件 |
 | 变更线索 | 可选 | 组件路径、diff、设计组件、页面引用、用户说明 |
 | 验证要求 | 可选 | GitNexus、rg、文件读取、Reviewer 审查 |
 
 ## 工作流程
 
-1. 读取项目级 `component-catalog/catalog.json`（机器可读索引，不存在时降级到 `index.md`）
-2. 读取相关组件条目、快照和 `component-catalog/CHANGELOG.md`
+1. 读取项目级 `.veaw/component-catalog/catalog.json`（机器可读索引，不存在时降级到 `.veaw/component-catalog/index.md`）
+2. 读取相关组件条目、快照和 `.veaw/component-catalog/CHANGELOG.md`
 3. 优先使用 GitNexus 校验组件路径、引用关系、影响范围和相似组件
 4. GitNexus 不可用时，说明原因，并降级使用 `rg/find`、imports 和文件读取
 5. 调用 `core/ai/skills/component-analysis.md` 生成差异报告

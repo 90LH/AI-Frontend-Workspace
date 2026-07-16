@@ -22,11 +22,11 @@
 
 ## 工作流程
 
-1. 在项目根目录创建 `component-catalog/`
-2. 创建 `component-catalog/index.md`
-3. 创建 `component-catalog/components/`
-4. 创建 `component-catalog/snapshots/`
-5. 创建 `component-catalog/CHANGELOG.md`
+1. 在目标项目 `.veaw/` 下创建 `component-catalog/`（完整路径：`.veaw/component-catalog/`）
+2. 创建 `.veaw/component-catalog/index.md`
+3. 创建 `.veaw/component-catalog/components/`
+4. 创建 `.veaw/component-catalog/snapshots/`
+5. 创建 `.veaw/component-catalog/CHANGELOG.md`
 6. 使用 `core/ai/templates/component-catalog.md` 维护组件条目
 7. 使用维护工作流更新 snapshot、lastVerified 和变更记录
 
@@ -43,7 +43,7 @@
 ## 输出格式
 
 ```text
-component-catalog/
+.veaw/component-catalog/
 ├── index.md
 ├── components/
 ├── snapshots/
