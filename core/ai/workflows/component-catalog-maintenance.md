@@ -61,13 +61,7 @@ Reviewer 校验影响范围与 Catalog 一致性
 
 ## MCP要求
 
-| MCP | 使用时机 |
-|-----|----------|
-| GitNexus | 校验源码关系、引用关系、影响范围、相似组件 |
-| Context7 | 第三方 UI 组件库或框架 API 不确定时 |
-| Playwright | 仅在实际页面实现后验证组件渲染和交互 |
-
-不得修改或实现 MCP 配置。
+遵循 `core/AGENTS.md` Section 6 的全局 MCP 优先级与降级策略。不得修改 `.mcp/mcp.json`。
 
 ## Skill调用规则
 

@@ -104,24 +104,7 @@ Skill：core/ai/skills/design-analysis.md
 
 ## MCP 要求
 
-设计任务 MCP 顺序：
-
-```text
-设计输入 MCP
-  ↓
-GitNexus
-  ↓
-Context7
-  ↓
-Playwright
-```
-
-说明：
-
-- 设计输入 MCP 用于获取设计结构、尺寸、组件和样式信息；例如 Figma MCP
-- GitNexus 用于匹配已有组件、页面和影响范围
-- Context7 用于确认框架、UI 库和 API 官方用法
-- Playwright 用于实现后的视觉、交互和回归验证
+遵循 `core/AGENTS.md` Section 6 的全局 MCP 优先级与降级策略（设计任务前置设计输入 MCP，例如 Figma MCP）。
 
 ## 输出格式
 

@@ -48,36 +48,13 @@
 
 ## MCP 要求
 
-| MCP | 使用时机 |
-|-----|----------|
-| GitNexus | 项目结构、调用关系、组件引用、影响范围 |
-| Context7 | Vue、Vite、Nuxt、Pinia、Vue Router、UI 库等官方 API 确认 |
-| Playwright | 代码接入后验证页面渲染和交互；纯文档接入可不使用 |
+遵循 `core/AGENTS.md` Section 6 的全局 MCP 优先级与降级策略。Playwright 在纯文档接入场景可不使用。
 
-只有目标项目未索引、MCP 不可用或用户明确禁止时，才允许降级到 `rg`、配置文件读取和目录扫描。
+## Preset 选择规则与 Extension 激活规则
 
-## Preset 选择规则
+Preset 自动选择证据、冲突处理和 Extension 激活规则的唯一真源是 [`core/ai/router.md`](../router.md) Section 4-5。
 
-- `nuxt`：存在 `nuxt` 依赖或 `nuxt.config.*`。
-- `electron`：存在 `electron` 依赖、`electron/` 目录或主进程入口。
-- `vue-admin`：Vue3 + Vite + Element Plus + 后台布局、权限路由或管理端结构。
-- `vue-h5`：Vue3 + Vite + Vant、移动端适配或 H5 页面结构。
-- `react-admin`：React + Vite + Ant Design、React Router 或管理端结构。
-
-冲突时：
-
-1. 主 Preset 互斥，只选择一个。
-2. 用户指定优先，但必须记录覆盖原因。
-3. 自动判断证据不足时，不激活，只输出候选和缺失信息。
-4. Preset 只有 `preset.json` 时，不推断不存在的 `AGENTS.md` 规则。
-
-## Extension 激活规则
-
-- 设计输入或 Design-to-Code 需求启用 `design`。
-- 组件盘点、复用、映射、Component Catalog 需求启用 `component-intelligence`。
-- Extension 可叠加。
-- 只有存在 `extensions/<name>/EXTENSION.md` 时才允许启用。
-- 不修改 `.mcp/mcp.json`，不覆盖 `.claude/skills`。
+补充：不修改 `.mcp/mcp.json`，不覆盖 `.claude/skills`。
 
 ## Template 使用规则
 

@@ -36,26 +36,7 @@ Designer 不直接实现代码，重点产出设计分析和实现方案。
 
 ## MCP要求
 
-| MCP | 使用时机 |
-|-----|----------|
-| 设计输入 MCP | 获取设计稿页面结构、尺寸、组件信息和样式信息；例如 Figma MCP |
-| GitNexus | 匹配项目已有页面、组件、样式、tokens 或同类实现 |
-| Context7 | UI 库、框架或设计系统 API 用法不确定时查询官方文档 |
-| Playwright | 设计还原完成后进行视觉与交互验证；通常由 Developer 或 Reviewer 执行 |
-
-设计任务 MCP 顺序：
-
-```text
-设计输入 MCP
-  ↓
-GitNexus
-  ↓
-Context7
-  ↓
-Playwright
-```
-
-设计输入 MCP 不可用时，必须说明降级原因，并基于图片、截图、文字说明或用户补充信息继续分析。
+遵循 `core/AGENTS.md` Section 6 的全局 MCP 优先级与降级策略。Playwright 用于设计还原完成后的视觉与交互验证，通常由 Developer 或 Reviewer 执行。
 
 ## Skill调用规则
 

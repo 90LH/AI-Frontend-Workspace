@@ -33,13 +33,7 @@ Architect 不直接编码，输出必须足够清晰，可以交给 Developer Ag
 
 ## MCP要求
 
-| MCP | 使用时机 |
-|-----|----------|
-| GitNexus | 项目结构分析、调用链、影响范围、同类实现查找 |
-| Context7 | 方案涉及框架或第三方 API 且官方用法不确定 |
-| Playwright | 通常不由 Architect 直接使用；仅在方案评估需要现状页面验证时使用 |
-
-MCP 调用顺序遵循 `core/CODEX.md`：GitNexus -> Context7 -> Playwright。
+遵循 `core/AGENTS.md` Section 6 的全局 MCP 优先级与降级策略。Playwright 通常不由 Architect 直接使用，仅在方案评估需要现状页面验证时使用。
 
 ## Skill调用规则
 

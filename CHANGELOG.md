@@ -2,6 +2,33 @@
 
 ---
 
+# v1.8.0（2026-07-16）Phase 7.5 架构优化（Token 优化重构）
+
+本次为纯重构（Refactor），不改变任何 Skill/Agent/Workflow 的行为、Slash Command 或输出结果，仅去重、抽象和引用化。
+
+## 新增
+
+- 新增：`core/ai/router.md`，作为 Agent Router、Skill Registry、Workflow 入口、Preset 加载规则、Extension 加载规则、`.veaw/` 上下文加载、Component Catalog 接入的唯一真源（SSOT）。
+- 新增：`core/AGENTS.md` Section 6 扩展为 MCP 优先级与降级策略的唯一真源，取代此前散落在 20+ 个文件中的重复表格。
+
+## 改进（去重与抽象）
+
+- 改进：`.claude/skills/` 下 5 个旧 Skill（`vue-page-create`、`component-create`、`api-development`、`bug-fix`、`code-review`）由全量重写改为 Thin Wrapper 模式，与新 4 个 Skill 保持一致；`core/ai/skills/*.md` 成为唯一执行逻辑真源。
+- 改进：`.codex/AGENTS.md` 的 Agent Router（Section 4）、Skill Registry（Section 5）、Workflow 入口（Section 7）、Preset 加载规则（Section 9）、Extension 加载规则（Section 10）改为引用 `core/ai/router.md`，不再重复维护路由表。
+- 改进：`.claude/CLAUDE.md` 对应 Section 3-8 同步改为引用 `core/ai/router.md`，与 Codex 侧保持单一真源。
+- 改进：`core/ai/skills/*.md`、`core/ai/agents/*.md`、`core/ai/workflows/*.md` 中重复的 MCP 使用时机表格（36 处）统一改为引用 `core/AGENTS.md` Section 6，仅保留与全局默认不同的特例说明。
+- 改进：非特例 Skill 的输出格式示例块统一改为引用 `core/AGENTS.md` Section 8 全局响应格式，code-review 等特殊输出格式的 Skill 保留独立说明。
+- 改进：`core/CODEX.md` 的 MCP 工具优先级与降级策略（原 Section 3-4）合并为一节，引用 `core/AGENTS.md` Section 6。
+- 改进：`core/ai/workflows/project-onboarding.md` 与 `core/ai/skills/project-onboarding.md` 中重复的 Preset/Extension 规则表格，以及过期的"Claude Code 兼容边界"（未同步 Claude 已有 project-onboarding Skill 的事实）改为引用 `core/ai/router.md` 并修正为当前状态。
+- 改进：`core/ai/skills/README.md` 补充 Thin Wrapper 编写规范和 SSOT 引用说明。
+
+## 影响
+
+- 相关文件净减少约 880 行（`.claude/CLAUDE.md`、`.codex/AGENTS.md`、`core/CODEX.md`、`core/ai/skills/*`、`core/ai/agents/*`、`core/ai/workflows/*`、`.claude/skills/*`），新增 `core/ai/router.md` 160 行作为一次性维护成本。
+- 未改变任何业务代码、`.mcp/mcp.json`、已有 Skill/Workflow/Agent 的行为或触发方式。
+
+---
+
 # v1.7.0（2026-07-15）
 
 ## 新增

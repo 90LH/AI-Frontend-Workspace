@@ -34,13 +34,7 @@ Reviewer 默认不修改代码，除非用户明确要求进入修复模式。
 
 ## MCP要求
 
-| MCP | 使用时机 |
-|-----|----------|
-| GitNexus | 分析调用方、被调用方、影响范围和同类实现 |
-| Context7 | 判断框架或第三方库用法是否符合官方建议 |
-| Playwright | 需要复核 UI、交互、回归路径或验证 Developer 结果 |
-
-MCP 不可用时，按 `core/CODEX.md` 的降级策略处理。
+遵循 `core/AGENTS.md` Section 6 的全局 MCP 优先级与降级策略。
 
 ## Skill调用规则
 

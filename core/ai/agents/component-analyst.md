@@ -42,13 +42,7 @@ Component Analyst 不直接实现代码，输出组件资产报告，供 Archite
 
 ## MCP要求
 
-| MCP | 使用时机 |
-|-----|----------|
-| GitNexus | 组件发现、调用关系、影响范围、相似组件和依赖分析 |
-| Context7 | 第三方 UI 组件库或框架 API 不确定时查询官方文档 |
-| Playwright | 仅在实际页面实现后验证组件渲染、交互和回归 |
-
-MCP 降级遵循 `core/CODEX.md`：只有 GitNexus 不可用或目标仓库未索引时，才降级到 `rg`、文件读取和 imports 分析。
+遵循 `core/AGENTS.md` Section 6 的全局 MCP 优先级与降级策略。Playwright 仅在实际页面实现后使用。
 
 ## Skill调用规则
 

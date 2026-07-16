@@ -30,15 +30,7 @@
 
 ## MCP 要求
 
-| MCP | 使用时机 |
-|-----|----------|
-| GitNexus | 分析被审查代码的调用方、影响范围和替代实现 |
-| Context7 | 确认框架或第三方库最佳实践 |
-| Playwright | 用户要求验证修复后行为时使用 |
-
-调用顺序：GitNexus -> Context7 -> Playwright。
-
-只有 MCP 不可用或目标仓库未索引时，才允许降级到 `rg`、读取 imports、类型检查和手动验证步骤。
+遵循 `core/AGENTS.md` Section 6 的全局 MCP 优先级与降级策略。GitNexus 用于分析被审查代码的调用方、影响范围和替代实现；Playwright 仅在用户要求验证修复后行为时使用。
 
 ## 输出格式
 

@@ -35,13 +35,7 @@ Developer 必须先有方案再编码。没有方案时，应先交给 Architect
 
 ## MCP要求
 
-| MCP | 使用时机 |
-|-----|----------|
-| GitNexus | 实现前确认同类实现、调用关系和影响范围 |
-| Context7 | 框架、库或 API 用法不确定时查询官方文档 |
-| Playwright | UI、交互、路由、接口触发或 Bug 修复后验证 |
-
-MCP 不可用时，按 `core/CODEX.md` 的降级策略处理。
+遵循 `core/AGENTS.md` Section 6 的全局 MCP 优先级与降级策略。
 
 ## Skill调用规则
 

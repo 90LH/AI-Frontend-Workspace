@@ -55,13 +55,7 @@ Reviewer
 
 ## MCP要求
 
-| MCP | 使用时机 |
-|-----|----------|
-| GitNexus | 组件发现、调用关系、影响范围、相似组件和依赖分析 |
-| Context7 | 第三方 UI 组件库、Vue API 或组件库 API 不确定时查询官方文档 |
-| Playwright | 仅在实际页面实现后验证组件渲染、交互和回归 |
-
-MCP 调用策略遵循 `core/CODEX.md`。不得修改或实现 MCP 配置。
+遵循 `core/AGENTS.md` Section 6 的全局 MCP 优先级与降级策略。不得修改 `.mcp/mcp.json`。
 
 ## Skill调用规则
 

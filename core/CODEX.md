@@ -70,45 +70,16 @@ Agent 调度由 `.codex/AGENTS.md` 负责：
 
 ---
 
-## 3. 工具优先级
+## 3. 工具优先级与降级
 
-Codex 有可用工具时，优先级如下：
+MCP 优先级和降级策略的唯一真源是 [`core/AGENTS.md`](AGENTS.md) Section 6。
 
-```text
-GitNexus   > rg/find
-Context7   > 模型记忆
-Playwright > 人工描述
-```
-
-规则：
-
-- GitNexus 用于代码关系、调用链、影响范围分析
-- Context7 用于官方文档、框架 API、第三方库 API 确认
-- Playwright 用于浏览器渲染、交互和回归验证
-- `rg`、读取 imports、人工验证步骤只作为降级方案
+Codex 特有的一点：设计输入 MCP（如 Figma MCP）在设计任务中优先于 GitNexus，
+其余顺序与 `core/AGENTS.md` Section 6 一致。
 
 ---
 
-## 4. MCP 降级策略
-
-只有满足以下条件之一时，才允许从 MCP 降级：
-
-- 当前环境没有对应 MCP 工具
-- 目标仓库未被 GitNexus 索引
-- MCP 调用失败且错误与环境或连接有关
-- 用户明确要求不要使用某个 MCP
-
-降级时必须说明原因，并选择最接近的替代方式：
-
-| MCP | 降级方式 |
-|-----|----------|
-| GitNexus | `rg` 搜索、读取 imports、阅读相关文件 |
-| Context7 | 只基于已读项目文档和明确 API 名称回答；不确定时说明 |
-| Playwright | 运行类型检查、构建检查，并给出手动验证步骤 |
-
----
-
-## 5. Skill 执行规则
+## 4. Skill 执行规则
 
 Codex 收到 Skill 任务时：
 
@@ -134,17 +105,17 @@ Project Onboarding 任务应读取：
 
 ---
 
-## 6. 文件读取规则
+## 5. 文件读取规则
 
 - 修改任何文件前必须先读取
 - 不基于文件名猜测内容
 - 独立文件可并行读取
 - 有依赖关系的步骤串行执行
-- MCP 调用串行执行：GitNexus -> Context7 -> Playwright
+- MCP 调用顺序遵循 `core/AGENTS.md` Section 6
 
 ---
 
-## 7. 文件修改规则
+## 6. 文件修改规则
 
 - 每次只修改完成任务所需的最少文件
 - 修改前说明计划修改范围
@@ -156,7 +127,7 @@ Project Onboarding 任务应读取：
 
 ---
 
-## 8. 代码生成规则
+## 7. 代码生成规则
 
 - Vue 组件必须使用 `<script setup lang="ts">`
 - Props、Emits、API 参数、API 响应必须有 TypeScript 类型
@@ -166,7 +137,7 @@ Project Onboarding 任务应读取：
 
 ---
 
-## 9. 上下文压缩后的行为
+## 8. 上下文压缩后的行为
 
 当对话上下文被压缩或任务中断后，恢复工作前必须：
 
@@ -179,7 +150,7 @@ Project Onboarding 任务应读取：
 
 ---
 
-## 10. 输出格式
+## 9. 输出格式
 
 与 `core/AGENTS.md` Section 8 保持一致：
 

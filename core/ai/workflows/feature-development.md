@@ -31,7 +31,7 @@ Reviewer
 
 ### 第二步：分析现有代码
 ```
-工具：GitNexus（代码图谱分析）
+工具：GitNexus（代码图谱分析，遵循 core/AGENTS.md Section 6 的 MCP 优先级）
 任务：
 - 查找同类页面/组件作为参考
 - 确认可复用的 composables 和 utilities
@@ -75,7 +75,7 @@ Reviewer
 
 ### 第六步：验证
 ```
-工具：Playwright（浏览器验证）
+工具：Playwright（浏览器验证，MCP 不可用时按 core/AGENTS.md Section 6 降级）
 任务：
 - 访问相关页面，确认正常渲染
 - 走完主要操作路径（golden path）

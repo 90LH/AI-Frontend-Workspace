@@ -51,24 +51,7 @@
 
 ## MCP 要求
 
-| MCP | 使用时机 |
-|-----|----------|
-| 设计输入 MCP | 获取设计结构、尺寸、组件、样式和节点信息；例如 Figma MCP |
-| GitNexus | 匹配已有组件、页面、样式、tokens 和同类实现 |
-| Context7 | UI 库或框架实现方式不确定时查询官方文档 |
-| Playwright | 实现后进行视觉还原和交互验证 |
-
-设计任务优先顺序：
-
-```text
-设计输入 MCP
-  ↓
-GitNexus
-  ↓
-Context7
-  ↓
-Playwright
-```
+遵循 `core/AGENTS.md` Section 6 的全局 MCP 优先级与降级策略（设计任务前置设计输入 MCP，例如 Figma MCP，用于获取设计结构、尺寸、组件和样式信息）。
 
 ## 输出格式
 

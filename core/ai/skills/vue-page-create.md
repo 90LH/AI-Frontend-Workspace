@@ -33,34 +33,11 @@
 
 ## MCP 要求
 
-| MCP | 使用时机 |
-|-----|----------|
-| GitNexus | 查找同类页面、组件、composables、API 和路由注册位置 |
-| Context7 | 不确定 Vue3、Pinia、Vue Router 或 UI 库 API 时查询官方文档 |
-| Playwright | 页面创建后验证渲染、交互、Console 和主要路径 |
-
-调用顺序：GitNexus -> Context7 -> Playwright。
-
-只有 MCP 不可用或目标仓库未索引时，才允许降级到 `rg`、读取 imports、类型检查和手动验证步骤。
+遵循 `core/AGENTS.md` Section 6 的全局 MCP 优先级与降级策略。GitNexus 用于查找同类页面、组件、composables、API 和路由注册位置。
 
 ## 输出格式
 
-```text
-## 理解
-[页面功能、页面类型和数据流说明]
-
-## 计划
-[新建/修改文件列表和高风险点]
-
-## 变更
-[已创建/修改的文件路径和内容摘要]
-
-## 验证
-[TypeScript 检查、浏览器验证或降级验证说明]
-
-## 遗留风险
-[未覆盖的边界情况]
-```
+遵循 `core/AGENTS.md` Section 8 全局响应格式（理解 / 计划 / 变更 / 验证 / 遗留风险）。「计划」需标注高风险点（如路由注册）。
 
 ## 注意事项
 

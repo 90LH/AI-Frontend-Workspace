@@ -41,121 +41,49 @@
 
 ## 3. Agent Router
 
-收到任务请求时，按以下规则路由至对应 Agent 和 Workflow：
+Agent Router、Agent 定义文件和调度规则的唯一真源是 [`core/ai/router.md`](../core/ai/router.md) Section 1，Claude Code 完全遵循。
 
-| 任务类型 | 路由链 |
-|----------|--------|
-| 设计稿分析 / Design-to-Code | Designer → `/design-analysis` → `design-to-code` Workflow → Architect → Developer → Reviewer |
-| 组件资产分析 / 组件复用 | Component Analyst → `/component-analysis` → `component-intelligence` Workflow |
-| 组件目录维护 / Catalog 更新 | Component Analyst → `/component-catalog-maintenance` → `component-catalog-maintenance` Workflow |
-| 项目接入 / Preset Activation | `/project-onboarding` → `project-onboarding` Workflow |
-| 新功能开发 | Architect → `feature-development` Workflow → Developer → Reviewer |
-| Bug 修复 | Developer → `/bug-fix` → `bug-fix` Workflow → Reviewer |
-| Code Review | Reviewer → `/code-review` |
-
-### Agent 定义
-
-| Agent | 定义文件 |
-|-------|----------|
-| Designer | [core/ai/agents/designer.md](../core/ai/agents/designer.md) |
-| Component Analyst | [core/ai/agents/component-analyst.md](../core/ai/agents/component-analyst.md) |
-| Architect | [core/ai/agents/architect.md](../core/ai/agents/architect.md) |
-| Developer | [core/ai/agents/developer.md](../core/ai/agents/developer.md) |
-| Reviewer | [core/ai/agents/reviewer.md](../core/ai/agents/reviewer.md) |
+Claude Code 用 slash command 触发对应 Skill（见本文件 Section 2），再按 Section 1 的 Agent 链完成后续交接（如需要 Architect / Developer / Reviewer 参与）。
 
 ---
 
 ## 4. Workflow 入口
 
-| Workflow | 入口文件 | 触发场景 |
-|----------|----------|----------|
-| feature-development | [core/ai/workflows/feature-development.md](../core/ai/workflows/feature-development.md) | 新功能需求 |
-| bug-fix | [core/ai/workflows/bug-fix.md](../core/ai/workflows/bug-fix.md) | Bug 定位与修复 |
-| design-to-code | [core/ai/workflows/design-to-code.md](../core/ai/workflows/design-to-code.md) | 设计稿转代码 |
-| component-intelligence | [core/ai/workflows/component-intelligence.md](../core/ai/workflows/component-intelligence.md) | 组件资产分析与复用 |
-| component-catalog-maintenance | [core/ai/workflows/component-catalog-maintenance.md](../core/ai/workflows/component-catalog-maintenance.md) | Catalog 维护与校验 |
-| project-onboarding | [core/ai/workflows/project-onboarding.md](../core/ai/workflows/project-onboarding.md) | 真实项目接入 VEAW |
+Workflow 入口表的唯一真源是 [`core/ai/router.md`](../core/ai/router.md) Section 3。
 
 ---
 
 ## 5. Preset 加载规则
 
-执行任务前，检查目标项目是否已激活 Preset：
-
-1. 读取目标项目 `.veaw/project.json` 中 `preset` 字段
-2. 按激活的 Preset 名称读取对应规则：`presets/<name>/preset.json`
-3. 若该 Preset 存在 `AGENTS.md`（`presets/<name>/AGENTS.md`），一并加载作为补充规则
-4. 若 Preset 仅有 `preset.json`（无 `AGENTS.md`），只加载 `preset.json` 声明的技术栈规则，不推断不存在的规则
-
-| Preset | 说明 | AGENTS.md |
-|--------|------|-----------|
-| vue-admin | Vue3 后台管理系统 | ✓ [presets/vue-admin/AGENTS.md](../presets/vue-admin/AGENTS.md) |
-| vue-h5 | Vue3 移动端 H5 | ✓ [presets/vue-h5/AGENTS.md](../presets/vue-h5/AGENTS.md) |
-| nuxt | Nuxt3 全栈应用 | ✗ 仅 preset.json |
-| react-admin | React 管理系统 | ✗ 仅 preset.json |
-| electron | Electron 桌面应用 | ✗ 仅 preset.json |
+Preset 加载顺序、自动选择规则和冲突处理的唯一真源是 [`core/ai/router.md`](../core/ai/router.md) Section 4。
 
 ---
 
 ## 6. Extension 加载规则
 
-Extension 由 `/project-onboarding` 激活后写入目标项目 `.veaw/project.json` 的 `extensions` 字段。
-
-加载规则：
-1. 读取 `.veaw/project.json` 中 `extensions` 数组
-2. 对每个已激活 Extension，读取 `extensions/<name>/EXTENSION.md`
-3. 仅加载存在 `EXTENSION.md` 的 Extension；否则跳过并告知用户
-
-| Extension | 定义文件 | 启用条件 |
-|-----------|----------|----------|
-| component-intelligence | [extensions/component-intelligence/EXTENSION.md](../extensions/component-intelligence/EXTENSION.md) | 组件分析、复用决策、Catalog 维护 |
-| design | [extensions/design/EXTENSION.md](../extensions/design/EXTENSION.md) | 设计稿分析、Design-to-Code |
-
-> Figma MCP 当前未在 `.mcp/mcp.json` 中配置。`design` Extension 激活后，设计输入须通过截图、用户描述或本地设计文件提供。
+Extension 加载顺序和激活规则的唯一真源是 [`core/ai/router.md`](../core/ai/router.md) Section 5。
 
 ---
 
 ## 7. .veaw/ 上下文加载
 
-目标项目根目录下的 `.veaw/` 为项目级知识层，由 `/project-onboarding` 在目标项目中生成。
-
-加载顺序：
-1. `.veaw/project.json` — 技术栈、Preset、Extension、Catalog 路径
-2. `.veaw/context.md` — 项目级 AI 上下文补充（架构特殊性、约定、禁止操作）
-
-规则：
-- `.veaw/` 属于目标项目目录，不属于 VEAW 本身
-- 不在 VEAW 仓库中创建 `.veaw/project.json`
-- 无 `.veaw/` 时，降级到读取目标项目 `package.json` 和目录结构推断
+`.veaw/` 上下文加载顺序和规则的唯一真源是 [`core/ai/router.md`](../core/ai/router.md) Section 6。
 
 ---
 
 ## 8. Component Catalog 接入
 
-Component Catalog 位于目标项目的 `component-catalog/` 目录下，由 `/project-onboarding` 初始化。
-
-使用规则：
-- 组件分析任务前，优先读取 `component-catalog/index.md` 了解已有资产
-- `/component-catalog-maintenance` 负责更新 Catalog，不手动覆盖索引
-- VEAW 自身的 `component-catalog/` 为 workspace 配置仓库的示例，不含真实业务组件数据
+Component Catalog 接入规则的唯一真源是 [`core/ai/router.md`](../core/ai/router.md) Section 7。
 
 ---
 
 ## 9. MCP 调用顺序
 
-每次任务按以下顺序决定是否调用 MCP：
+MCP 优先级、调用顺序和降级策略的唯一真源是 [`core/AGENTS.md`](../core/AGENTS.md) Section 6，Claude Code 完全遵循：GitNexus → Context7 → Playwright（设计任务额外前置设计输入 MCP，当前未配置）。
 
-```
-1. GitNexus   — 理解代码结构（先查关系，再读代码）
-2. Context7   — 查询官方文档（有 API 疑问时调用）
-3. Playwright — 验证结果（代码修改后在浏览器中验证）
-```
-
-规则：
-- 不并行调用多个 MCP，按上述顺序串行
+- 不并行调用多个 MCP，按顺序串行
 - GitNexus 有结果时，不重复用 grep/find 搜索
-- Context7 只用于查询官方文档，不用于分析业务代码
-- Playwright 只在代码变更后调用，不用于探索阶段
+- 只有 MCP 不可用或目标仓库未索引时才降级
 
 ---
 

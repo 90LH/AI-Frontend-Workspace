@@ -60,93 +60,19 @@ MCP 可用性检查
 7. 如启用 Component Intelligence，按 `extensions/component-intelligence/project-catalog-onboarding.md` 在目标项目维护 `component-catalog/`。
 8. 输出 Codex、Claude、MCP、Preset、Extension、Catalog 的接入状态。
 
-## Preset 自动选择规则
+## Preset 自动选择规则与 Extension 激活规则
 
-| 证据 | 推荐 Preset |
-|------|-------------|
-| 存在 `nuxt` 依赖或 `nuxt.config.*` | `nuxt` |
-| 存在 `electron` 依赖、`electron/` 目录或主进程入口 | `electron` |
-| Vue3 + Vite + Element Plus + 后台布局或权限路由 | `vue-admin` |
-| Vue3 + Vite + Vant 或移动端适配配置 | `vue-h5` |
-| React + Vite + Ant Design 或 React Router | `react-admin` |
-
-冲突处理：
-
-1. 主 Preset 互斥，同一项目只能激活一个主 Preset。
-2. `nuxt` 与普通 `vue-admin`、`vue-h5` 冲突时，优先 `nuxt`，除非用户明确覆盖。
-3. `electron` 项目中渲染进程仍可记录 Vue3 约束，但主 Preset 选择 `electron`。
-4. 用户显式指定 Preset 时优先用户选择，并记录为 `selectionReason: "userOverride"`。
-5. 自动判断置信度不足时，不自动激活，只输出候选和缺失信息。
-
-## Extension 激活规则
-
-| 条件 | 推荐 Extension |
-|------|----------------|
-| 有 Figma、截图、Design Token、页面还原或设计组件映射需求 | `design` |
-| 需要组件盘点、复用分析、组件映射或 Component Catalog | `component-intelligence` |
-
-规则：
-
-- Extension 是叠加能力，可同时启用多个。
-- 只有存在 `extensions/<name>/EXTENSION.md` 时才允许激活。
-- 不根据 `extensions/README.md` 中的规划项推断规则。
-- Extension 不保存真实项目数据，只保存团队级可复用规则。
+唯一真源是 [`core/ai/router.md`](../router.md) Section 4-5。
 
 ## 项目级上下文加载
 
-Codex 推荐加载顺序：
+Codex 加载链路见 `core/CODEX.md` Section 2；Claude Code 加载顺序见 `.claude/CLAUDE.md` Section 1。两侧均在 core 通用规则之后加载目标项目 `.veaw/project.json` 和 `.veaw/context.md`，再进入 preset / extension / agent / workflow / skill / template / MCP。
 
-```text
-.codex/AGENTS.md
-  ↓
-core/CODEX.md
-  ↓
-core/AGENTS.md
-  ↓
-目标项目 .veaw/project.json
-  ↓
-目标项目 .veaw/context.md
-  ↓
-preset
-  ↓
-extension
-  ↓
-agent / workflow / skill / template
-  ↓
-MCP
-```
-
-Claude Code 推荐加载方式：
-
-```text
-.claude/CLAUDE.md
-  ↓
-core/AGENTS.md
-  ↓
-目标项目 .veaw/project.json
-  ↓
-目标项目 .veaw/context.md
-  ↓
-.claude/skills/*
-  ↓
-MCP
-```
-
-Claude Code 兼容边界：
-
-- 不覆盖 `.claude/skills/*/SKILL.md`。
-- 新 Skill 若需要 Claude 自动识别，应另行新增 Claude 专用 Skill 并在 `.claude/CLAUDE.md` 注册。
-- 在未新增 Claude 专用 Skill 前，Claude 可按 `.veaw/context.md` 和 core 通用文档读取项目上下文。
+Claude Code 已具备 `.claude/skills/project-onboarding/SKILL.md` 入口，不再依赖 Codex 专属路径。
 
 ## MCP 要求
 
-| MCP | 使用时机 |
-|-----|----------|
-| GitNexus | 项目结构、依赖关系、组件引用、影响范围分析 |
-| Context7 | 框架、UI 库、构建工具或测试工具官方 API 确认 |
-| Playwright | 接入后执行真实页面验证或交互回归 |
-
-不得修改 `.mcp/mcp.json`。目标项目未被 GitNexus 索引时，必须说明降级原因并使用 `rg`、配置文件和只读文件读取。
+遵循 `core/AGENTS.md` Section 6 的全局 MCP 优先级与降级策略。不得修改 `.mcp/mcp.json`。
 
 ## 输出格式
 

@@ -19,11 +19,7 @@ Claude Code 启动时加载顺序：
 
 ### 工具优先级
 
-```
-GitNexus  > grep/find    （代码搜索）
-Context7  > 凭记忆回答   （文档查询）
-Playwright > 手动描述    （功能验证）
-```
+MCP 优先级与降级策略的唯一真源是 [`core/AGENTS.md`](AGENTS.md) Section 6。
 
 ### 文件读取规则
 
@@ -35,7 +31,7 @@ Playwright > 手动描述    （功能验证）
 
 - 独立的文件读取操作：并行执行
 - 有依赖关系的操作：串行执行
-- MCP 调用：始终串行（GitNexus → Context7 → Playwright）
+- MCP 调用：始终串行，顺序见 `core/AGENTS.md` Section 6
 
 ---
 

@@ -93,18 +93,35 @@ Avoid:
 
 # 6. MCP Usage Rules
 
-When available:
+This section is the single source of truth for MCP priority and degradation.
+Codex and Claude entry files (`.codex/AGENTS.md`, `core/CODEX.md`, `.claude/CLAUDE.md`)
+and all Skill/Agent/Workflow files reference this section instead of repeating it.
 
-Use:
+## Priority
 
-- Context7
-  for official documentation
+1. Design Input MCP (e.g. Figma MCP) — design tasks only: page structure, size,
+   component and style info
+2. GitNexus — code relationships, call chains, impact analysis (prefer over rg/find)
+3. Context7 — official docs, framework/third-party API confirmation (prefer over memory)
+4. Playwright — browser rendering, interaction, regression verification (prefer over
+   manual description)
 
-- GitNexus
-  for code relationship analysis
+Call order: Design Input MCP -> GitNexus -> Context7 -> Playwright.
+Skip step 1 for non-design tasks.
 
-- Playwright
-  for browser verification
+## Degradation
+
+Only degrade to `rg`/`find`, manual file reads, or manual verification steps when:
+
+- the MCP tool is unavailable in the current environment
+- the target repo is not indexed by GitNexus
+- an MCP call fails for environment/connection reasons
+- the user explicitly asks to skip a given MCP
+
+When degrading, state the reason and the closest fallback used. A Skill/Agent/
+Workflow file may add a short note only when its MCP usage differs from this
+default (e.g. which MCP is used for what lookup); it must not restate this
+priority/degradation policy.
 
 # 7. Safety Rules
 

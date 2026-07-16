@@ -31,7 +31,7 @@ Reviewer
 
 ### 第二步：定位代码
 ```
-工具：GitNexus
+工具：GitNexus（遵循 core/AGENTS.md Section 6 的 MCP 优先级）
 任务：
 - 根据报错栈或功能描述定位相关文件和函数
 - 查找函数的调用链
@@ -69,7 +69,7 @@ Reviewer
 
 ### 第六步：验证
 ```
-工具：Playwright
+工具：Playwright（MCP 不可用时按 core/AGENTS.md Section 6 降级）
 步骤：
 1. 按原复现步骤重新操作，确认 Bug 已消失
 2. 检查相关功能无回归
