@@ -2,6 +2,23 @@
 
 ---
 
+# v1.12.0（2026-07-16）Commands 系统
+
+## 新增
+
+- 新增：`.veaw/commands/` Command 库，作为跨项目（Claude Code / Codex CLI / ChatGPT）可复用的用户入口层，与 Skills（实现层）和 Agents（角色层）分离。
+- 新增：`.veaw/commands/README.md`，Command Router 表 + Commands vs Skills 说明 + 统一模板字段定义（12 字段），作为 Command 注册的唯一真源（SSOT）。
+- 新增：10 个 Command 定义文件：`warm-start`、`new-page`、`new-component`、`component-analysis`、`impact-analysis`、`bug-fix`、`refactor`、`review`、`release`、`document`，每个包含 Purpose / When to Use / Inputs / Preconditions / Execution Flow / Skills Called / Agents Chain / MCP Usage / Session Log Update / Failure Handling / Output / Example。
+- 新增：`core/ai/router.md` Section 9 Command Router，仅做路由跳转（指向 `.veaw/commands/README.md`），不重复维护 Command 表格。
+
+## 影响
+
+- 未修改 `.claude/skills/*`、`.mcp/*` 或任何已有 Agent 定义文件；Commands 只编排已有 Skills 和 Agent 链，不包含实现逻辑。
+- `core/ai/router.md` §1–§8 未改动，纯追加 §9，无破坏性变更。
+- Commands 不存储真实项目数据；执行流程遵循 `User → Router → Command → Skills → Agents → MCP → Validation → Session Log`。
+
+---
+
 # v1.11.0（2026-07-16）架构约束：Component Catalog 迁移至 .veaw/
 
 ## 改进
