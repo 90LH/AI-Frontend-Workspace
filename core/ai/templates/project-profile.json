@@ -70,6 +70,16 @@
       "status": "<available | unavailable | unknown>"
     }
   },
+  "cache": {
+    "packageJsonHash": "",
+    "lockfileHash": "",
+    "structureHash": "",
+    "structureScope": [],
+    "catalogSnapshot": {
+      "source": "component-catalog/catalog.json",
+      "field": "lastVerified"
+    }
+  },
   "notes": [
     "Only project-level facts belong in this file.",
     "Do not copy this filled file into VEAW core."

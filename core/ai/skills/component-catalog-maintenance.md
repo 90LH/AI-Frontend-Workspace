@@ -27,7 +27,7 @@
 
 ## 工作流程
 
-1. 读取项目级 `component-catalog/index.md`
+1. 读取项目级 `component-catalog/catalog.json`（机器可读索引，不存在时降级到 `index.md`）
 2. 读取相关组件条目、快照和 `component-catalog/CHANGELOG.md`
 3. 优先使用 GitNexus 校验组件路径、引用关系、影响范围和相似组件
 4. GitNexus 不可用时，说明原因，并降级使用 `rg/find`、imports 和文件读取

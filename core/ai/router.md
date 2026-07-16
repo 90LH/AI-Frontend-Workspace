@@ -155,6 +155,42 @@ Component Catalog 位于目标项目的 `component-catalog/` 目录下，由 `pr
 
 使用规则：
 
-- 组件分析任务前，优先读取 `component-catalog/index.md` 了解已有资产
+- 组件分析任务前，优先读取 `component-catalog/catalog.json`（不存在时降级到 `index.md`）了解已有资产
 - `component-catalog-maintenance` 负责更新 Catalog，不手动覆盖索引
 - VEAW 自身的 `component-catalog/` 为 workspace 配置仓库的示例，不含真实业务组件数据
+
+---
+
+## 8. 读取预算与事实文件优先规则
+
+### 事实文件 vs 规范文件
+
+| 类型 | 定义 | 示例 |
+|------|------|------|
+| 事实文件 | 描述目标项目实际状态 | `.veaw/project.json`、`catalog.json`、源码文件 |
+| 规范文件 | 定义 AI 行为规则 | `core/AGENTS.md`、`core/ai/router.md`、Preset AGENTS.md |
+
+### 事实文件优先规则
+
+1. 每次任务开始前，先读事实文件，再按需读规范文件
+2. `project.json` 中已有的字段不得靠猜测推断
+3. 事实文件与规范文件冲突时，事实文件优先
+
+### 默认读取预算
+
+| 层级 | 文件 | 时机 |
+|------|------|------|
+| L0（必读） | `.veaw/project.json` | 任务开始，Preset / Extension / 路径 / MCP 状态 |
+| L1（视 Skill 按需读） | `component-catalog/catalog.json` | 组件相关 Skill 开始时 |
+| L2（精准读取） | Skill 指定范围的源码文件 | 实现阶段按需 |
+| L3（规范补充） | Preset / Extension / core Skill 文件 | 规则不清晰时 |
+
+Skill 可在自身文件注明一行读取预算差异，不重复写完整表格。
+
+### 降级兜底规则
+
+| 文件缺失 | 降级行为 |
+|----------|----------|
+| `.veaw/project.json` | 读 `package.json` + 目录结构推断 Preset |
+| `catalog.json` | 读 `component-catalog/index.md`；若也不存在，从源码目录扫描 |
+| GitNexus 不可用 | 降级到 `rg` + 文件读取，说明降级原因 |

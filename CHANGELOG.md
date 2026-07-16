@@ -2,6 +2,28 @@
 
 ---
 
+# v1.9.0（2026-07-16）真实项目接入优化
+
+## 新增
+
+- 新增：`core/ai/templates/catalog-manifest.json`，Component Catalog 机器可读索引模板（SSOT for AI asset queries）。
+- 新增：`core/ai/router.md` Section 8，定义读取预算层级（L0-L3）、事实文件优先规则和三条降级兜底规则（`project.json` 缺失 / `catalog.json` 缺失 / GitNexus 不可用）。
+
+## 改进
+
+- 改进：`core/ai/templates/project-profile.json` 新增 `cache` 字段（`packageJsonHash`、`lockfileHash`、`structureHash`、`structureScope`、`catalogSnapshot`），`catalogSnapshot` 指向 `catalog.json` 的 `lastVerified`，避免两个真源并存。
+- 改进：`core/ai/templates/project-context.md` 精简为"架构特殊性与约定"纯人工上下文，移除与 `project.json` 重复的技术栈、Preset、Extension、目录结构表格，工具加载说明指向 `core/ai/router.md`。
+- 改进：`core/ai/skills/component-analysis.md` 工作流 Step 2 改为先读 `catalog.json`，不存在时降级到 `index.md`，再调用 GitNexus。
+- 改进：`core/ai/skills/component-catalog-maintenance.md` 工作流 Step 1 改为先读 `catalog.json`，不存在时降级到 `index.md`。
+- 改进：`core/ai/router.md` Section 7 Component Catalog 接入规则，主读目标从 `index.md` 改为 `catalog.json`（降级到 `index.md`）。
+
+## 影响
+
+- 未改变任何 Skill/Workflow/Agent 的行为或触发方式；仅改变读取顺序（事实优先）与模板结构（减少重复字段）。
+- `project.json` 模板新增 `cache` 字段，已接入项目需在下次 onboarding 校验时补充。
+
+---
+
 # v1.8.0（2026-07-16）Phase 7.5 架构优化（Token 优化重构）
 
 本次为纯重构（Refactor），不改变任何 Skill/Agent/Workflow 的行为、Slash Command 或输出结果，仅去重、抽象和引用化。
