@@ -71,14 +71,19 @@
     }
   },
   "cache": {
-    "packageJsonHash": "",
-    "lockfileHash": "",
-    "structureHash": "",
-    "structureScope": [],
-    "catalogSnapshot": {
-      "source": "component-catalog/catalog.json",
-      "field": "lastVerified"
-    }
+    "packageJsonHash": "<hash-or-pending>",
+    "lockfileHash": "<hash-or-pending>",
+    "structureHash": "<hash-or-pending>",
+    "structureScope": [
+      "package.json",
+      "pnpm-lock.yaml",
+      "vite.config.ts",
+      "src/"
+    ],
+    "catalogManifestHash": "<hash-or-pending>",
+    "catalogSnapshotId": "<snapshot-id-or-pending>",
+    "lastOnboardingHash": "<hash-or-pending>",
+    "lastUpdated": "YYYY-MM-DD"
   },
   "notes": [
     "Only project-level facts belong in this file.",

@@ -161,36 +161,101 @@ Component Catalog 位于目标项目的 `component-catalog/` 目录下，由 `pr
 
 ---
 
-## 8. 读取预算与事实文件优先规则
+## 8. 读取预算与运行时优化规则
 
-### 事实文件 vs 规范文件
+### A. 事实文件优先规则
+
+**类型定义**
 
 | 类型 | 定义 | 示例 |
 |------|------|------|
-| 事实文件 | 描述目标项目实际状态 | `.veaw/project.json`、`catalog.json`、源码文件 |
-| 规范文件 | 定义 AI 行为规则 | `core/AGENTS.md`、`core/ai/router.md`、Preset AGENTS.md |
+| 事实文件 | 描述目标项目实际状态 | `.veaw/project.json`、`catalog.json`、`.veaw/session-log.md`、源码 |
+| 规范文件 | 定义 AI 行为规则 | `core/AGENTS.md`、本文件、Preset AGENTS.md |
 
-### 事实文件优先规则
+事实文件与规范文件冲突时，事实文件优先。`project.json` 中已有的字段不得靠猜测推断。
 
-1. 每次任务开始前，先读事实文件，再按需读规范文件
-2. `project.json` 中已有的字段不得靠猜测推断
-3. 事实文件与规范文件冲突时，事实文件优先
-
-### 默认读取预算
+**默认读取层级**
 
 | 层级 | 文件 | 时机 |
 |------|------|------|
-| L0（必读） | `.veaw/project.json` | 任务开始，Preset / Extension / 路径 / MCP 状态 |
-| L1（视 Skill 按需读） | `component-catalog/catalog.json` | 组件相关 Skill 开始时 |
-| L2（精准读取） | Skill 指定范围的源码文件 | 实现阶段按需 |
-| L3（规范补充） | Preset / Extension / core Skill 文件 | 规则不清晰时 |
+| L0（必读） | `.veaw/project.json`；`.veaw/session-log.md`（如存在） | 任务开始，warm start + 项目事实 |
+| L1（按需读） | `component-catalog/catalog.json`（如存在） | 组件相关 Skill 开始时 |
+| L2（精准读取） | 用户指定文件、报错堆栈相关文件、catalog 命中的组件文件 | 实现阶段 |
+| L3（规范补充） | `core/ai/skills/*`、`core/ai/workflows/*`、`presets/*`、`extensions/*`、`core/docs/*` | 仅以下情况展开 |
+
+只有以下情况才展开 L3：
+
+- onboarding 任务
+- 行为不确定
+- 高风险修改（见 §8-C）
+- 缓存缺失或 hash 不匹配（见 §8-B）
+- 用户明确要求解释规范或执行完整流程
+
+**session-log 使用边界**
+
+- session-log 只用于恢复上下文，不是事实来源
+- session-log 内容不得覆盖 project.json 字段
+- session-log 与 project.json 冲突时，以 project.json 为准
+- session-log 模板：`core/ai/templates/session-log.md`
 
 Skill 可在自身文件注明一行读取预算差异，不重复写完整表格。
 
-### 降级兜底规则
+**降级兜底规则**
 
 | 文件缺失 | 降级行为 |
 |----------|----------|
-| `.veaw/project.json` | 读 `package.json` + 目录结构推断 Preset |
+| `.veaw/project.json` | 读 `package.json` + 目录结构推断 Preset，说明降级原因 |
+| `.veaw/session-log.md` | 按冷启动流程处理，不报错 |
 | `catalog.json` | 读 `component-catalog/index.md`；若也不存在，从源码目录扫描 |
 | GitNexus 不可用 | 降级到 `rg` + 文件读取，说明降级原因 |
+
+---
+
+### B. Cache 失效与跳过规则
+
+| cache 字段 | hash 匹配时可跳过 | hash 不匹配或缺失时 |
+|------------|-------------------|---------------------|
+| `packageJsonHash` | 依赖分析、UI 库推断、包管理器推断 | 重新读取 `package.json` 和 lockfile |
+| `lockfileHash` | 依赖版本变化判断 | 重新检查依赖版本和包管理器 |
+| `structureHash` | 目录结构扫描、路径推断 | 重新扫描 `structureScope` 中声明的路径 |
+| `catalogManifestHash` | `catalog.json` 全量重建 | 读取 `catalog.json`，按需读组件条目 |
+| `catalogSnapshotId` | 重复快照生成 | 生成或更新 snapshot |
+| `lastOnboardingHash` | Preset / Extension 重判 | 重新执行 onboarding 判断 |
+
+**例外规则**
+
+| 状态 | 行为 |
+|------|------|
+| hash 匹配 + git clean | 允许跳过对应扫描 |
+| hash 匹配 + git dirty | 只跳过与当前 diff 无关的扫描 |
+| hash 缺失 | 按首次识别流程处理，完成后写入 hash |
+| hash 不匹配 | 只重新识别对应范围，不全量重扫 |
+| 用户明确要求重新扫描 | 忽略所有缓存 |
+
+---
+
+### C. Agent 快速通道
+
+| 规模 | 判断标准 | Agent 链 |
+|------|----------|----------|
+| Micro | 单文件、逻辑明确、不涉及公共组件/配置、不影响 API 签名 | Developer → Reviewer |
+| Standard | 多文件、需要方案判断、普通功能修改 | Architect → Developer → Reviewer |
+| Large | 新页面、架构变更、影响 >5 个文件、跨模块改动 | 完整 Agent 链，先输出方案确认 |
+
+**禁止进入 Micro 的场景**
+
+以下任一场景存在，必须升级为 Standard 或 Large：
+
+- 路由守卫或路由配置
+- Pinia / 全局 store 结构变更
+- 公共组件修改
+- API 层接口签名变更
+- 构建配置修改
+- 权限、登录、鉴权相关
+- 影响文件超过 1 个
+- 用户要求架构方案或技术设计
+
+**高风险变更规则**
+
+- 高风险变更不绑定 Claude Code 或 Codex 身份，两侧均须先输出方案。
+- 最终由当前上下文中更容易验证的一方执行，用户确认后落地。

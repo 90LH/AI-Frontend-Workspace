@@ -2,6 +2,28 @@
 
 ---
 
+# v1.10.0（2026-07-16）Token Runtime Optimization
+
+## 新增
+
+- 新增：`core/ai/templates/session-log.md`，warm start 日志模板；定义写入规则（最近10条、每条≤5行、禁止写密钥/diff/代码片段）和用途边界（不替代 project.json / catalog.json / 源码事实）。
+
+## 改进
+
+- 改进：`core/ai/router.md` Section 8 全面扩展为三部分：
+  - §8-A 事实文件优先规则：L0/L1/L2/L3 读取层级（L0 纳入 session-log warm start）、session-log 使用边界、降级兜底规则（含 session-log 缺失不报错）。
+  - §8-B Cache 失效与跳过规则：6个 hash 字段的跳过条件（packageJsonHash / lockfileHash / structureHash / catalogManifestHash / catalogSnapshotId / lastOnboardingHash）+ 5条例外规则（git clean / git dirty / 缺失 / 不匹配 / 用户强制重扫）。
+  - §8-C Agent 快速通道：Micro / Standard / Large 三级规模判断、Micro 禁止场景清单（8条）、高风险变更双侧出方案规则。
+- 改进：`core/ai/templates/project-profile.json` cache 字段扩展，新增 `catalogManifestHash`、`catalogSnapshotId`、`lastOnboardingHash`、`lastUpdated`；`structureScope` 填充默认覆盖路径；移除旧 `catalogSnapshot` 嵌套对象。
+
+## 影响
+
+- 未改变任何 Skill/Workflow/Agent 行为或触发方式。
+- 不生成真实业务项目的 `.veaw/session-log.md`，仅提供模板。
+- `project.json` 已接入项目在下次 onboarding 校验时补充新 cache 字段。
+
+---
+
 # v1.9.0（2026-07-16）真实项目接入优化
 
 ## 新增
