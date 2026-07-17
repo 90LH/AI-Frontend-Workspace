@@ -2,6 +2,33 @@
 
 ---
 
+# v1.13.0（2026-07-17）Workspace Registry 与 CLI 闭环
+
+## 新增
+
+- 新增：`registries/` 资源协议，包含顶层 `registry.json`、统一 `registry.schema.json` 与 core / skills / templates / workflows / agents / presets / extensions / prompts / commands / rules / knowledge / docs 子 registry。
+- 新增：统一资源字段：`id`、`type`、`version`、`sourcePath`、`targetPath`、`tags`、`dependencies`、`enabledByDefault`、`copyPolicy`、`overwritePolicy`、`hash`。
+- 新增：`commands.json` 声明式 command 定义，支持 `commandSchemaVersion`、参数 schema、依赖资源和安全 execution 类型。
+- 新增：5 个可被 CLI 发现的声明式 Workspace command：`warm-start`、`new-page`、`new-component`、`bug-fix`、`review`。
+
+## 改进
+
+- 改进：Workspace 资源成为 CLI Resource Loader 的真源，CLI 可通过 Registry 安装、同步和消费资源。
+- 改进：保留 `.veaw/commands/*.md` 旧路径，新增 Registry 索引不改变现有资源内容与路径。
+- 改进：README 更新为当前已实现的 `Workspace -> Resource Loader -> CLI -> Project` 闭环说明。
+
+## 验证
+
+- Registry 当前登记 66 个资源、66 个唯一 id、5 个声明式 command。
+- 已校验所有 `sourcePath` 存在，所有 `hash` 与真实文件一致，所有资源依赖和 command 引用均可解析。
+
+## 影响
+
+- 不破坏旧 Workspace 资源路径。
+- 不允许 Workspace command 直接执行 shell 或任意 JavaScript；第一版仅允许声明式生成 prompt、渲染 template、组装 workflow 输入。
+
+---
+
 # v1.12.0（2026-07-16）Commands 系统
 
 ## 新增
