@@ -116,6 +116,135 @@
           "items": {
             "$ref": "#/$defs/resource"
           }
+        },
+        "commandSchemaVersion": {
+          "type": "string"
+        },
+        "commands": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/commandDefinition"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "commandDefinition": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "description",
+        "version",
+        "parameters",
+        "dependencies",
+        "execution"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "parameters": {
+          "$ref": "#/$defs/commandParameterSchema"
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "execution": {
+          "$ref": "#/$defs/commandExecution"
+        }
+      },
+      "additionalProperties": false
+    },
+    "commandParameterSchema": {
+      "type": "object",
+      "required": [
+        "type",
+        "properties",
+        "required"
+      ],
+      "properties": {
+        "type": {
+          "const": "object"
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/commandParameter"
+          }
+        },
+        "required": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "commandParameter": {
+      "type": "object",
+      "required": [
+        "type",
+        "description"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "string",
+            "boolean",
+            "number"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "default": {
+          "type": [
+            "string",
+            "boolean",
+            "number"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "commandExecution": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "generate-prompt",
+            "render-template",
+            "call-workflow"
+          ]
+        },
+        "resourceId": {
+          "type": "string"
+        },
+        "templateId": {
+          "type": "string"
+        },
+        "workflowId": {
+          "type": "string"
+        },
+        "outputPathParameter": {
+          "type": "string"
         }
       },
       "additionalProperties": false

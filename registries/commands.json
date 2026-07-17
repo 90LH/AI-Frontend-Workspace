@@ -229,5 +229,178 @@
       "overwritePolicy": "if-missing",
       "hash": "sha256:3d4702818b7f505826e186e02b4f62495f1285ece28c2b9277768b2fae0397c1"
     }
+  ],
+  "commandSchemaVersion": "1.0.0",
+  "commands": [
+    {
+      "id": "command:warm-start",
+      "name": "warm-start",
+      "description": "生成会话开始前的项目上下文加载提示词。",
+      "version": "1.0.0",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "focus": {
+            "type": "string",
+            "description": "本次会话重点。"
+          }
+        },
+        "required": []
+      },
+      "dependencies": [
+        "core:router"
+      ],
+      "execution": {
+        "type": "generate-prompt",
+        "resourceId": "command:warm-start"
+      }
+    },
+    {
+      "id": "command:new-page",
+      "name": "new-page",
+      "description": "生成创建 Vue 路由级页面的 AI 输入。",
+      "version": "1.0.0",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "page_name": {
+            "type": "string",
+            "description": "页面名称。"
+          },
+          "route_path": {
+            "type": "string",
+            "description": "路由路径。"
+          },
+          "description": {
+            "type": "string",
+            "description": "页面功能描述。"
+          },
+          "layout": {
+            "type": "string",
+            "description": "Layout 组件。"
+          },
+          "store": {
+            "type": "boolean",
+            "description": "是否需要创建 Pinia store slice。",
+            "default": false
+          }
+        },
+        "required": [
+          "page_name",
+          "route_path",
+          "description"
+        ]
+      },
+      "dependencies": [
+        "skill:vue-page-create",
+        "skill:component-analysis",
+        "agent:architect",
+        "agent:developer",
+        "agent:reviewer"
+      ],
+      "execution": {
+        "type": "generate-prompt",
+        "resourceId": "command:new-page"
+      }
+    },
+    {
+      "id": "command:new-component",
+      "name": "new-component",
+      "description": "生成创建可复用组件的 AI 输入。",
+      "version": "1.0.0",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "component_name": {
+            "type": "string",
+            "description": "组件名称。"
+          },
+          "type": {
+            "type": "string",
+            "description": "组件类型或使用场景。"
+          },
+          "description": {
+            "type": "string",
+            "description": "组件能力描述。"
+          }
+        },
+        "required": [
+          "component_name",
+          "description"
+        ]
+      },
+      "dependencies": [
+        "skill:component-analysis",
+        "skill:component-create",
+        "skill:component-catalog-maintenance"
+      ],
+      "execution": {
+        "type": "generate-prompt",
+        "resourceId": "command:new-component"
+      }
+    },
+    {
+      "id": "command:bug-fix",
+      "name": "bug-fix",
+      "description": "生成定位和修复 Bug 的 AI 输入。",
+      "version": "1.0.0",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "Bug 描述或错误信息。"
+          },
+          "file": {
+            "type": "string",
+            "description": "观察到 Bug 的文件路径。"
+          },
+          "reproduction": {
+            "type": "string",
+            "description": "复现步骤。"
+          }
+        },
+        "required": [
+          "description"
+        ]
+      },
+      "dependencies": [
+        "skill:bug-fix",
+        "agent:developer",
+        "agent:reviewer"
+      ],
+      "execution": {
+        "type": "generate-prompt",
+        "resourceId": "command:bug-fix"
+      }
+    },
+    {
+      "id": "command:review",
+      "name": "review",
+      "description": "生成代码审查 AI 输入。",
+      "version": "1.0.0",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "审查目标，例如文件、目录或变更范围。"
+          },
+          "focus": {
+            "type": "string",
+            "description": "审查重点。"
+          }
+        },
+        "required": []
+      },
+      "dependencies": [
+        "skill:code-review",
+        "agent:reviewer"
+      ],
+      "execution": {
+        "type": "generate-prompt",
+        "resourceId": "command:review"
+      }
+    }
   ]
 }
