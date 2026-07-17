@@ -1,0 +1,178 @@
+{
+  "$schema": "./registry.schema.json",
+  "schemaVersion": "1.0.0",
+  "workspaceVersion": "1.0.0",
+  "resourceType": "template",
+  "resources": [
+    {
+      "id": "template:api-module",
+      "type": "template",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/templates/api-module.ts",
+      "targetPath": ".veaw/resources/templates/api-module.ts",
+      "tags": [
+        "template",
+        "api",
+        "typescript"
+      ],
+      "dependencies": [
+        "skill:api-development"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:fb3e267729b77231628d16b40556263f17fbdc7ff015f7e8a9672b6d5ad42a1a"
+    },
+    {
+      "id": "template:catalog-manifest",
+      "type": "template",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/templates/catalog-manifest.json",
+      "targetPath": ".veaw/resources/templates/catalog-manifest.json",
+      "tags": [
+        "template",
+        "catalog",
+        "json"
+      ],
+      "dependencies": [
+        "skill:component-catalog-maintenance"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:450a4b3d778dc6d005181c4b06e2d656058daea11ee96625e8ec706a8f5bdc76"
+    },
+    {
+      "id": "template:component-catalog",
+      "type": "template",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/templates/component-catalog.md",
+      "targetPath": ".veaw/resources/templates/component-catalog.md",
+      "tags": [
+        "template",
+        "component",
+        "catalog"
+      ],
+      "dependencies": [
+        "skill:component-catalog-maintenance"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:a67ca397d816e99f70bed05d4e0fec6203aa87cf6c4550da9f09e72adc4eea50"
+    },
+    {
+      "id": "template:composable",
+      "type": "template",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/templates/composable.ts",
+      "targetPath": ".veaw/resources/templates/composable.ts",
+      "tags": [
+        "template",
+        "vue",
+        "composable"
+      ],
+      "dependencies": [
+        "doc:coding-standard"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:bdc220662a03a462e04d7931be698895afe45de60edbb9cea0cbf98e9f98ea7e"
+    },
+    {
+      "id": "template:project-context",
+      "type": "template",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/templates/project-context.md",
+      "targetPath": ".veaw/resources/templates/project-context.md",
+      "tags": [
+        "template",
+        "project",
+        "context"
+      ],
+      "dependencies": [
+        "skill:project-onboarding"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:8ea8b0a6c7f040ba36a31de253d41ab75bc2d6542165d902fee9a2668d86174c"
+    },
+    {
+      "id": "template:project-profile",
+      "type": "template",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/templates/project-profile.json",
+      "targetPath": ".veaw/resources/templates/project-profile.json",
+      "tags": [
+        "template",
+        "project",
+        "profile",
+        "json"
+      ],
+      "dependencies": [
+        "skill:project-onboarding"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:8bd87a956723d6af20036336f98e5ab37beef686772b4b1df381aebb4828180e"
+    },
+    {
+      "id": "template:session-log",
+      "type": "template",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/templates/session-log.md",
+      "targetPath": ".veaw/resources/templates/session-log.md",
+      "tags": [
+        "template",
+        "session",
+        "memory"
+      ],
+      "dependencies": [],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:8afe2fbf030241cc03adb20fc7d5caf2e22b8e38bf685912e4edff445d4de6c3"
+    },
+    {
+      "id": "template:vue-component",
+      "type": "template",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/templates/vue-component.vue",
+      "targetPath": ".veaw/resources/templates/vue-component.vue",
+      "tags": [
+        "template",
+        "vue",
+        "component"
+      ],
+      "dependencies": [
+        "skill:component-create"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:115ca02a817a70893ae1f3d269cf5a84bc6f1db92b4307914b71a25961abccb1"
+    },
+    {
+      "id": "template:vue-page",
+      "type": "template",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/templates/vue-page.vue",
+      "targetPath": ".veaw/resources/templates/vue-page.vue",
+      "tags": [
+        "template",
+        "vue",
+        "page"
+      ],
+      "dependencies": [
+        "skill:vue-page-create"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:ebf566780ae46b4a21e6ab8d2bc527f9bd19c6e667b6ffa2e0563805ee85a35e"
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "$schema": "./registry.schema.json",
+  "schemaVersion": "1.0.0",
+  "workspaceVersion": "1.0.0",
+  "resourceType": "skill",
+  "resources": [
+    {
+      "id": "skill:api-development",
+      "type": "skill",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/skills/api-development.md",
+      "targetPath": ".veaw/resources/skills/api-development.md",
+      "tags": [
+        "skill",
+        "api",
+        "development"
+      ],
+      "dependencies": [
+        "core:agents",
+        "doc:coding-standard"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:7ee5038ba72c32e9121cc1701bd5517d0312e75cdac3e81a618b543a731bdb98"
+    },
+    {
+      "id": "skill:bug-fix",
+      "type": "skill",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/skills/bug-fix.md",
+      "targetPath": ".veaw/resources/skills/bug-fix.md",
+      "tags": [
+        "skill",
+        "bug",
+        "fix"
+      ],
+      "dependencies": [
+        "core:agents"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:50d520e7d57a109578f1bcde03c5bc7ec49d2bec9763bc61eedcb429a4ac8955"
+    },
+    {
+      "id": "skill:code-review",
+      "type": "skill",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/skills/code-review.md",
+      "targetPath": ".veaw/resources/skills/code-review.md",
+      "tags": [
+        "skill",
+        "review",
+        "quality"
+      ],
+      "dependencies": [
+        "core:agents",
+        "doc:coding-standard"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:7b3075fb4a2c125dd1a0f794226220d21c76a57475f078a9e24f474da2476a53"
+    },
+    {
+      "id": "skill:component-analysis",
+      "type": "skill",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/skills/component-analysis.md",
+      "targetPath": ".veaw/resources/skills/component-analysis.md",
+      "tags": [
+        "skill",
+        "component",
+        "analysis"
+      ],
+      "dependencies": [
+        "agent:component-analyst"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:a9becf1ed19c609273d8677f3e81908d63cc36436637296256e648e6c82d8503"
+    },
+    {
+      "id": "skill:component-catalog-maintenance",
+      "type": "skill",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/skills/component-catalog-maintenance.md",
+      "targetPath": ".veaw/resources/skills/component-catalog-maintenance.md",
+      "tags": [
+        "skill",
+        "component",
+        "catalog"
+      ],
+      "dependencies": [
+        "skill:component-analysis",
+        "template:component-catalog"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:47658ef90a5b93e236b619085ddb7ff19795996774066a7ec9bd31c3bd252a19"
+    },
+    {
+      "id": "skill:component-create",
+      "type": "skill",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/skills/component-create.md",
+      "targetPath": ".veaw/resources/skills/component-create.md",
+      "tags": [
+        "skill",
+        "component",
+        "create"
+      ],
+      "dependencies": [
+        "template:vue-component",
+        "doc:directory"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:77b84400125104be19077447f3bf1e127f06c5fbab1ed7fec6745c8b23fca080"
+    },
+    {
+      "id": "skill:design-analysis",
+      "type": "skill",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/skills/design-analysis.md",
+      "targetPath": ".veaw/resources/skills/design-analysis.md",
+      "tags": [
+        "skill",
+        "design",
+        "analysis"
+      ],
+      "dependencies": [
+        "agent:designer"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:5d6d579d51a2408570a26e6c2f0b1b67fde1e2ef74ff1e120ff91e00e68ba191"
+    },
+    {
+      "id": "skill:project-onboarding",
+      "type": "skill",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/skills/project-onboarding.md",
+      "targetPath": ".veaw/resources/skills/project-onboarding.md",
+      "tags": [
+        "skill",
+        "onboarding",
+        "workspace"
+      ],
+      "dependencies": [
+        "workflow:project-onboarding",
+        "template:project-profile",
+        "template:project-context"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:a2842caae2f3f8825ecb436bc0f17beac2b5eb39a42199ba69bb428dd88de4b4"
+    },
+    {
+      "id": "skill:vue-page-create",
+      "type": "skill",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/skills/vue-page-create.md",
+      "targetPath": ".veaw/resources/skills/vue-page-create.md",
+      "tags": [
+        "skill",
+        "vue",
+        "page",
+        "create"
+      ],
+      "dependencies": [
+        "template:vue-page",
+        "doc:directory",
+        "doc:coding-standard"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:68338f0c9dc51368d934dc7805364eed1a7c1b44bca92b61aa12e147bbd7495c"
+    }
+  ]
+}

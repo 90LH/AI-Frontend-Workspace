@@ -1,0 +1,47 @@
+{
+  "$schema": "./registry.schema.json",
+  "schemaVersion": "1.0.0",
+  "workspaceVersion": "1.0.0",
+  "resourceType": "knowledge",
+  "resources": [
+    {
+      "id": "knowledge:typescript-patterns",
+      "type": "knowledge",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/knowledge/typescript-patterns.md",
+      "targetPath": ".veaw/resources/knowledge/typescript-patterns.md",
+      "tags": [
+        "knowledge",
+        "typescript",
+        "patterns"
+      ],
+      "dependencies": [
+        "rule:typescript"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:099355ec8e9a43d467a5e012f74e59fbfcc82b3786119a1dda85260b64b06434"
+    },
+    {
+      "id": "knowledge:vue3-patterns",
+      "type": "knowledge",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/knowledge/vue3-patterns.md",
+      "targetPath": ".veaw/resources/knowledge/vue3-patterns.md",
+      "tags": [
+        "knowledge",
+        "vue",
+        "vue3",
+        "patterns"
+      ],
+      "dependencies": [
+        "rule:vue3"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:253ef89ecf11802be71e404a2dc7186e1e0aa18f683ab605dd4f963b202c740b"
+    }
+  ]
+}

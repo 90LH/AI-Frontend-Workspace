@@ -1,0 +1,90 @@
+{
+  "$schema": "./registry.schema.json",
+  "schemaVersion": "1.0.0",
+  "workspaceVersion": "1.0.0",
+  "workspace": {
+    "id": "veaw",
+    "name": "VEAW",
+    "rootMarker": "workspace.json",
+    "description": "Vue Enterprise AI Workspace resource registry."
+  },
+  "registries": [
+    {
+      "id": "core",
+      "type": "core",
+      "path": "core.json",
+      "required": true
+    },
+    {
+      "id": "skills",
+      "type": "skill",
+      "path": "skills.json",
+      "required": true
+    },
+    {
+      "id": "templates",
+      "type": "template",
+      "path": "templates.json",
+      "required": true
+    },
+    {
+      "id": "workflows",
+      "type": "workflow",
+      "path": "workflows.json",
+      "required": true
+    },
+    {
+      "id": "agents",
+      "type": "agent",
+      "path": "agents.json",
+      "required": true
+    },
+    {
+      "id": "presets",
+      "type": "preset",
+      "path": "presets.json",
+      "required": true
+    },
+    {
+      "id": "extensions",
+      "type": "extension",
+      "path": "extensions.json",
+      "required": true
+    },
+    {
+      "id": "prompts",
+      "type": "prompt",
+      "path": "prompts.json",
+      "required": true
+    },
+    {
+      "id": "commands",
+      "type": "command",
+      "path": "commands.json",
+      "required": true
+    },
+    {
+      "id": "rules",
+      "type": "rule",
+      "path": "rules.json",
+      "required": true
+    },
+    {
+      "id": "knowledge",
+      "type": "knowledge",
+      "path": "knowledge.json",
+      "required": true
+    },
+    {
+      "id": "docs",
+      "type": "doc",
+      "path": "docs.json",
+      "required": true
+    }
+  ],
+  "compatibility": {
+    "legacyCliAssetsFallback": true,
+    "legacyCommandsPath": ".veaw/commands",
+    "legacyWorkspaceMetadataPath": "workspace.json"
+  }
+}

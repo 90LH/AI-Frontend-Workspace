@@ -1,0 +1,46 @@
+{
+  "$schema": "./registry.schema.json",
+  "schemaVersion": "1.0.0",
+  "workspaceVersion": "1.0.0",
+  "resourceType": "rule",
+  "resources": [
+    {
+      "id": "rule:typescript",
+      "type": "rule",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/rules/typescript-rules.md",
+      "targetPath": ".veaw/resources/rules/typescript-rules.md",
+      "tags": [
+        "rule",
+        "typescript",
+        "strict"
+      ],
+      "dependencies": [
+        "doc:coding-standard"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:e252fb0705eebc32d0f33f6b925cf0502c153a0550126c95e9a3d93f6218af2e"
+    },
+    {
+      "id": "rule:vue3",
+      "type": "rule",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/rules/vue3-rules.md",
+      "targetPath": ".veaw/resources/rules/vue3-rules.md",
+      "tags": [
+        "rule",
+        "vue",
+        "vue3"
+      ],
+      "dependencies": [
+        "doc:coding-standard"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:a2af547c819e0ffd8db2a9830695907af0c0016983fe1d5a2369fb8008efe2ab"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "./registry.schema.json",
+  "schemaVersion": "1.0.0",
+  "workspaceVersion": "1.0.0",
+  "resourceType": "prompt",
+  "resources": [
+    {
+      "id": "prompt:form-page",
+      "type": "prompt",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/prompts/form-page.md",
+      "targetPath": ".veaw/resources/prompts/form-page.md",
+      "tags": [
+        "prompt",
+        "vue",
+        "form",
+        "page"
+      ],
+      "dependencies": [
+        "skill:vue-page-create"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:3315a6e4d43c72cdc7bbd960a0ffd5074aa9f713ba951fe433c4c4c42657d561"
+    },
+    {
+      "id": "prompt:list-page",
+      "type": "prompt",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/prompts/list-page.md",
+      "targetPath": ".veaw/resources/prompts/list-page.md",
+      "tags": [
+        "prompt",
+        "vue",
+        "list",
+        "page"
+      ],
+      "dependencies": [
+        "skill:vue-page-create"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:d80fd4ba1f48d60ceb6eeec3c9feff22264839380ad891680005086398f97dc2"
+    }
+  ]
+}

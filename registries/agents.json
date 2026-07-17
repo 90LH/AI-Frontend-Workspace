@@ -1,0 +1,100 @@
+{
+  "$schema": "./registry.schema.json",
+  "schemaVersion": "1.0.0",
+  "workspaceVersion": "1.0.0",
+  "resourceType": "agent",
+  "resources": [
+    {
+      "id": "agent:architect",
+      "type": "agent",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/agents/architect.md",
+      "targetPath": ".veaw/resources/agents/architect.md",
+      "tags": [
+        "agent",
+        "architect"
+      ],
+      "dependencies": [
+        "core:agents"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:2021269236b30d4b181fc61fb0cc46b803bf414acb244bb9a7241167519ccc11"
+    },
+    {
+      "id": "agent:component-analyst",
+      "type": "agent",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/agents/component-analyst.md",
+      "targetPath": ".veaw/resources/agents/component-analyst.md",
+      "tags": [
+        "agent",
+        "component",
+        "analysis"
+      ],
+      "dependencies": [
+        "skill:component-analysis"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:3d84655405a4e5e4a2662e11ceba6a4982cc2feed326b59a4303aa32553405f5"
+    },
+    {
+      "id": "agent:designer",
+      "type": "agent",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/agents/designer.md",
+      "targetPath": ".veaw/resources/agents/designer.md",
+      "tags": [
+        "agent",
+        "design"
+      ],
+      "dependencies": [
+        "skill:design-analysis"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:061b3720e6108c9ebf656bc9710003a1e403f393476b8121332be1607705f229"
+    },
+    {
+      "id": "agent:developer",
+      "type": "agent",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/agents/developer.md",
+      "targetPath": ".veaw/resources/agents/developer.md",
+      "tags": [
+        "agent",
+        "developer"
+      ],
+      "dependencies": [
+        "core:agents"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:544d4ed48ea6a9f3cb97a865fb830886fcec4032cd810f18def0bef861191e6c"
+    },
+    {
+      "id": "agent:reviewer",
+      "type": "agent",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/agents/reviewer.md",
+      "targetPath": ".veaw/resources/agents/reviewer.md",
+      "tags": [
+        "agent",
+        "reviewer",
+        "quality"
+      ],
+      "dependencies": [
+        "skill:code-review"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:fde2c5158ef24d4d0ca8311b55bb7d656afbfae47479cc8caf876980c7f2a62e"
+    }
+  ]
+}

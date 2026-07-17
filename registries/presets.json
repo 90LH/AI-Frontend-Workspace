@@ -1,0 +1,137 @@
+{
+  "$schema": "./registry.schema.json",
+  "schemaVersion": "1.0.0",
+  "workspaceVersion": "1.0.0",
+  "resourceType": "preset",
+  "resources": [
+    {
+      "id": "preset:electron",
+      "type": "preset",
+      "version": "1.0.0",
+      "sourcePath": "presets/electron/preset.json",
+      "targetPath": ".veaw/resources/presets/electron/preset.json",
+      "tags": [
+        "preset",
+        "electron",
+        "vue"
+      ],
+      "dependencies": [],
+      "enabledByDefault": false,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:b29a60877748df2ecd1f39c9c4c0899b12813543b4331d28739b8d7fe734ae9f"
+    },
+    {
+      "id": "preset:nuxt",
+      "type": "preset",
+      "version": "1.0.0",
+      "sourcePath": "presets/nuxt/preset.json",
+      "targetPath": ".veaw/resources/presets/nuxt/preset.json",
+      "tags": [
+        "preset",
+        "nuxt",
+        "vue"
+      ],
+      "dependencies": [],
+      "enabledByDefault": false,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:117a3efa4a7846f2a3675d8e69f557c16440352655e773859e0c9d37676455b4"
+    },
+    {
+      "id": "preset:react-admin",
+      "type": "preset",
+      "version": "1.0.0",
+      "sourcePath": "presets/react-admin/preset.json",
+      "targetPath": ".veaw/resources/presets/react-admin/preset.json",
+      "tags": [
+        "preset",
+        "react",
+        "admin"
+      ],
+      "dependencies": [],
+      "enabledByDefault": false,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:5a35107ae7fd84a17a2c16acfd360856ee86ba5f5cb04184e6d9218b843e6e5c"
+    },
+    {
+      "id": "preset:vue-admin",
+      "type": "preset",
+      "version": "1.0.0",
+      "sourcePath": "presets/vue-admin/preset.json",
+      "targetPath": ".veaw/resources/presets/vue-admin/preset.json",
+      "tags": [
+        "preset",
+        "vue",
+        "admin"
+      ],
+      "dependencies": [
+        "preset-rule:vue-admin-agents"
+      ],
+      "enabledByDefault": false,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:7188fe86c5c0149ffc9ffcf005ca998b83d3b9579a09de916d7d31a94b58e0d7"
+    },
+    {
+      "id": "preset-rule:vue-admin-agents",
+      "type": "preset-rule",
+      "version": "1.0.0",
+      "sourcePath": "presets/vue-admin/AGENTS.md",
+      "targetPath": ".veaw/resources/presets/vue-admin/AGENTS.md",
+      "tags": [
+        "preset",
+        "vue",
+        "admin",
+        "rules"
+      ],
+      "dependencies": [
+        "core:agents"
+      ],
+      "enabledByDefault": false,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:167ee60eb79a9470fb6bb41bfa2e8fa90591d80f4e8c992366ef05272c50b1c8"
+    },
+    {
+      "id": "preset:vue-h5",
+      "type": "preset",
+      "version": "1.0.0",
+      "sourcePath": "presets/vue-h5/preset.json",
+      "targetPath": ".veaw/resources/presets/vue-h5/preset.json",
+      "tags": [
+        "preset",
+        "vue",
+        "h5"
+      ],
+      "dependencies": [
+        "preset-rule:vue-h5-agents"
+      ],
+      "enabledByDefault": false,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:4fd5a888f303cedbadaf74cf65a83a47518e6f7a67e065074bae3d6ef7071b4f"
+    },
+    {
+      "id": "preset-rule:vue-h5-agents",
+      "type": "preset-rule",
+      "version": "1.0.0",
+      "sourcePath": "presets/vue-h5/AGENTS.md",
+      "targetPath": ".veaw/resources/presets/vue-h5/AGENTS.md",
+      "tags": [
+        "preset",
+        "vue",
+        "h5",
+        "rules"
+      ],
+      "dependencies": [
+        "core:agents"
+      ],
+      "enabledByDefault": false,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:7b36ffdca7e411a144dede821f061a727fa53a53c17404ff79378c800e8e849f"
+    }
+  ]
+}

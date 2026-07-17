@@ -1,0 +1,83 @@
+{
+  "$schema": "./registry.schema.json",
+  "schemaVersion": "1.0.0",
+  "workspaceVersion": "1.0.0",
+  "resourceType": "doc",
+  "resources": [
+    {
+      "id": "doc:architecture",
+      "type": "doc",
+      "version": "1.0.0",
+      "sourcePath": "core/docs/architecture.md",
+      "targetPath": ".veaw/resources/docs/architecture.md",
+      "tags": [
+        "doc",
+        "architecture"
+      ],
+      "dependencies": [
+        "core:agents"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:d8333ca44f196489391ae2c0c49971abd0e7267b1cb977852470b2f5b078e1b9"
+    },
+    {
+      "id": "doc:coding-standard",
+      "type": "doc",
+      "version": "1.0.0",
+      "sourcePath": "core/docs/coding-standard.md",
+      "targetPath": ".veaw/resources/docs/coding-standard.md",
+      "tags": [
+        "doc",
+        "coding",
+        "standard"
+      ],
+      "dependencies": [
+        "core:agents"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:8bf799bf3244fa922c8069c6ea6d3fef8286031476b692275ea4ac2283181a0a"
+    },
+    {
+      "id": "doc:directory",
+      "type": "doc",
+      "version": "1.0.0",
+      "sourcePath": "core/docs/directory.md",
+      "targetPath": ".veaw/resources/docs/directory.md",
+      "tags": [
+        "doc",
+        "directory",
+        "structure"
+      ],
+      "dependencies": [
+        "core:agents"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:1fa4d458a4bec5d030fc52d3ac8594fc6f17c89a889d52e840106243a4e2069d"
+    },
+    {
+      "id": "doc:veaw-guide",
+      "type": "doc",
+      "version": "1.0.0",
+      "sourcePath": "core/docs/veaw-guide.md",
+      "targetPath": ".veaw/resources/docs/veaw-guide.md",
+      "tags": [
+        "doc",
+        "guide",
+        "veaw"
+      ],
+      "dependencies": [
+        "core:router"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:b2c248d61f31fe921437376f13248f63babd73077376c928fa1fc4ad4dc1eaee"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "./registry.schema.json",
+  "schemaVersion": "1.0.0",
+  "workspaceVersion": "1.0.0",
+  "resourceType": "core",
+  "resources": [
+    {
+      "id": "core:agents",
+      "type": "core",
+      "version": "1.0.0",
+      "sourcePath": "core/AGENTS.md",
+      "targetPath": ".veaw/resources/core/AGENTS.md",
+      "tags": [
+        "core",
+        "rules",
+        "entry"
+      ],
+      "dependencies": [],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:36a63c40727dc2fc0be19569a4e6773024ba9389839cdd3c6689c9670ffffd4c"
+    },
+    {
+      "id": "core:codex",
+      "type": "core",
+      "version": "1.0.0",
+      "sourcePath": "core/CODEX.md",
+      "targetPath": ".veaw/resources/core/CODEX.md",
+      "tags": [
+        "core",
+        "codex",
+        "entry"
+      ],
+      "dependencies": [
+        "core:agents"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:622daa205ea7691f6459e993b8d0c1ac294e3ad6bea9f5034fe990bafc3ca11c"
+    },
+    {
+      "id": "core:claude",
+      "type": "core",
+      "version": "1.0.0",
+      "sourcePath": "core/CLAUDE.md",
+      "targetPath": ".veaw/resources/core/CLAUDE.md",
+      "tags": [
+        "core",
+        "claude",
+        "entry"
+      ],
+      "dependencies": [
+        "core:agents"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:42fc8e3360a45ad742a9ff2f847b6018b4ad4e4986c6ed30154dc19e89850fa8"
+    },
+    {
+      "id": "core:router",
+      "type": "core",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/router.md",
+      "targetPath": ".veaw/resources/core/ai/router.md",
+      "tags": [
+        "core",
+        "router",
+        "registry-source"
+      ],
+      "dependencies": [
+        "core:agents"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:e61681bdab6469786d4bf755191970d93aabcd708becee8f21242d5d7846f374"
+    }
+  ]
+}

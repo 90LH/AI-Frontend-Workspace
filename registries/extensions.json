@@ -1,0 +1,111 @@
+{
+  "$schema": "./registry.schema.json",
+  "schemaVersion": "1.0.0",
+  "workspaceVersion": "1.0.0",
+  "resourceType": "extension",
+  "resources": [
+    {
+      "id": "extension:component-intelligence",
+      "type": "extension",
+      "version": "1.0.0",
+      "sourcePath": "extensions/component-intelligence/EXTENSION.md",
+      "targetPath": ".veaw/resources/extensions/component-intelligence/EXTENSION.md",
+      "tags": [
+        "extension",
+        "component",
+        "intelligence"
+      ],
+      "dependencies": [
+        "workflow:component-intelligence",
+        "skill:component-analysis",
+        "extension-guide:component-catalog-onboarding",
+        "extension-template:component-catalog",
+        "extension-guide:component-catalog-guidelines"
+      ],
+      "enabledByDefault": false,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:14a698c60947fe059285b06cd0e80af576918a4cde743f04dec1397dd32b1504"
+    },
+    {
+      "id": "extension-guide:component-catalog-guidelines",
+      "type": "extension-guide",
+      "version": "1.0.0",
+      "sourcePath": "extensions/component-intelligence/catalog-guidelines.md",
+      "targetPath": ".veaw/resources/extensions/component-intelligence/catalog-guidelines.md",
+      "tags": [
+        "extension",
+        "component",
+        "catalog",
+        "guidelines"
+      ],
+      "dependencies": [
+        "extension:component-intelligence"
+      ],
+      "enabledByDefault": false,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:8bea8dfa91816d115e13220d54f4dde0f1bb56a305ba7e8ef814f99bdc7990a1"
+    },
+    {
+      "id": "extension-template:component-catalog",
+      "type": "extension-template",
+      "version": "1.0.0",
+      "sourcePath": "extensions/component-intelligence/catalog-template.md",
+      "targetPath": ".veaw/resources/extensions/component-intelligence/catalog-template.md",
+      "tags": [
+        "extension",
+        "component",
+        "catalog",
+        "template"
+      ],
+      "dependencies": [
+        "extension:component-intelligence"
+      ],
+      "enabledByDefault": false,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:80475b2c8a54b98995525847548e8e6e97c71770bdfa1e70f091f756a5bea091"
+    },
+    {
+      "id": "extension-guide:component-catalog-onboarding",
+      "type": "extension-guide",
+      "version": "1.0.0",
+      "sourcePath": "extensions/component-intelligence/project-catalog-onboarding.md",
+      "targetPath": ".veaw/resources/extensions/component-intelligence/project-catalog-onboarding.md",
+      "tags": [
+        "extension",
+        "component",
+        "catalog",
+        "onboarding"
+      ],
+      "dependencies": [
+        "extension:component-intelligence"
+      ],
+      "enabledByDefault": false,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:230b022530a6a2d5df071bed2190016e8af8d097f8756cb1196114aa7f9b9e93"
+    },
+    {
+      "id": "extension:design",
+      "type": "extension",
+      "version": "1.0.0",
+      "sourcePath": "extensions/design/EXTENSION.md",
+      "targetPath": ".veaw/resources/extensions/design/EXTENSION.md",
+      "tags": [
+        "extension",
+        "design",
+        "figma"
+      ],
+      "dependencies": [
+        "workflow:design-to-code",
+        "skill:design-analysis"
+      ],
+      "enabledByDefault": false,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:8c5fa7ba3358b2541c7aa9be1fc3d2a289a8e67d523ad65a2ba57ee21e12c8e5"
+    }
+  ]
+}

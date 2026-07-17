@@ -1,0 +1,233 @@
+{
+  "$schema": "./registry.schema.json",
+  "schemaVersion": "1.0.0",
+  "workspaceVersion": "1.0.0",
+  "resourceType": "command",
+  "resources": [
+    {
+      "id": "command:router",
+      "type": "command-router",
+      "version": "1.0.0",
+      "sourcePath": ".veaw/commands/README.md",
+      "targetPath": ".veaw/resources/commands/README.md",
+      "tags": [
+        "command",
+        "router",
+        "legacy-path"
+      ],
+      "dependencies": [
+        "core:router"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:bf9f6fa51782713ff3e1624f17a51726a1461020cdc3c2ee518737f68f8a7aef"
+    },
+    {
+      "id": "command:bug-fix",
+      "type": "command",
+      "version": "1.0.0",
+      "sourcePath": ".veaw/commands/bug-fix.md",
+      "targetPath": ".veaw/resources/commands/bug-fix.md",
+      "tags": [
+        "command",
+        "bug",
+        "fix"
+      ],
+      "dependencies": [
+        "skill:bug-fix",
+        "agent:developer",
+        "agent:reviewer"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:dd40835a66eb8a67a3acd1ffd29be74f15c120c605c177aeadcd4f8a66e889fa"
+    },
+    {
+      "id": "command:component-analysis",
+      "type": "command",
+      "version": "1.0.0",
+      "sourcePath": ".veaw/commands/component-analysis.md",
+      "targetPath": ".veaw/resources/commands/component-analysis.md",
+      "tags": [
+        "command",
+        "component",
+        "analysis"
+      ],
+      "dependencies": [
+        "skill:component-analysis",
+        "skill:component-catalog-maintenance",
+        "agent:component-analyst"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:806fc5fd23fe4fd0db38d3385a525d23f9da04024b21d2c69ad824d26c58a504"
+    },
+    {
+      "id": "command:document",
+      "type": "command",
+      "version": "1.0.0",
+      "sourcePath": ".veaw/commands/document.md",
+      "targetPath": ".veaw/resources/commands/document.md",
+      "tags": [
+        "command",
+        "document"
+      ],
+      "dependencies": [
+        "skill:component-catalog-maintenance",
+        "skill:api-development"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:5c5ac346a95970dd52fc061e839c93c2e9991d53b36dbbae0637966cc83990ea"
+    },
+    {
+      "id": "command:impact-analysis",
+      "type": "command",
+      "version": "1.0.0",
+      "sourcePath": ".veaw/commands/impact-analysis.md",
+      "targetPath": ".veaw/resources/commands/impact-analysis.md",
+      "tags": [
+        "command",
+        "impact",
+        "analysis"
+      ],
+      "dependencies": [
+        "agent:architect"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:ce22b26d8fb3d2fa7d5b26f896aadfbfb699e8b0bb5ea2c30c3a96dbdc854d97"
+    },
+    {
+      "id": "command:new-component",
+      "type": "command",
+      "version": "1.0.0",
+      "sourcePath": ".veaw/commands/new-component.md",
+      "targetPath": ".veaw/resources/commands/new-component.md",
+      "tags": [
+        "command",
+        "component",
+        "create"
+      ],
+      "dependencies": [
+        "skill:component-analysis",
+        "skill:component-create",
+        "skill:component-catalog-maintenance"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:4a8441fc1a189b6a8cf19e4892f246aa520b4a9273812ebddefe8527b56396ad"
+    },
+    {
+      "id": "command:new-page",
+      "type": "command",
+      "version": "1.0.0",
+      "sourcePath": ".veaw/commands/new-page.md",
+      "targetPath": ".veaw/resources/commands/new-page.md",
+      "tags": [
+        "command",
+        "vue",
+        "page",
+        "create"
+      ],
+      "dependencies": [
+        "skill:vue-page-create",
+        "skill:component-analysis",
+        "agent:architect",
+        "agent:developer",
+        "agent:reviewer"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:805c48aefb8099b14b76209af3fb2bfcbdbf886f4985dfc8cc8b0653eeaf9cba"
+    },
+    {
+      "id": "command:refactor",
+      "type": "command",
+      "version": "1.0.0",
+      "sourcePath": ".veaw/commands/refactor.md",
+      "targetPath": ".veaw/resources/commands/refactor.md",
+      "tags": [
+        "command",
+        "refactor"
+      ],
+      "dependencies": [
+        "skill:code-review",
+        "skill:component-catalog-maintenance",
+        "agent:architect",
+        "agent:developer",
+        "agent:reviewer"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:b1b8c438e699f66834d16245891c3cb6a3f4a30bb401adea89ecb3439cba85f2"
+    },
+    {
+      "id": "command:release",
+      "type": "command",
+      "version": "1.0.0",
+      "sourcePath": ".veaw/commands/release.md",
+      "targetPath": ".veaw/resources/commands/release.md",
+      "tags": [
+        "command",
+        "release"
+      ],
+      "dependencies": [
+        "skill:code-review",
+        "skill:api-development",
+        "agent:architect",
+        "agent:reviewer"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:0e00f277bc56326e4f9af4094517fe9b5c43de0e6d3bd26918431897c34417a2"
+    },
+    {
+      "id": "command:review",
+      "type": "command",
+      "version": "1.0.0",
+      "sourcePath": ".veaw/commands/review.md",
+      "targetPath": ".veaw/resources/commands/review.md",
+      "tags": [
+        "command",
+        "review"
+      ],
+      "dependencies": [
+        "skill:code-review",
+        "agent:reviewer"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:e47c971f5fa4cccabcf4c821d2657765882a57364490d815340d50544dd2a957"
+    },
+    {
+      "id": "command:warm-start",
+      "type": "command",
+      "version": "1.0.0",
+      "sourcePath": ".veaw/commands/warm-start.md",
+      "targetPath": ".veaw/resources/commands/warm-start.md",
+      "tags": [
+        "command",
+        "warm-start",
+        "context"
+      ],
+      "dependencies": [
+        "core:router"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:3d4702818b7f505826e186e02b4f62495f1285ece28c2b9277768b2fae0397c1"
+    }
+  ]
+}

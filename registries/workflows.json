@@ -1,0 +1,130 @@
+{
+  "$schema": "./registry.schema.json",
+  "schemaVersion": "1.0.0",
+  "workspaceVersion": "1.0.0",
+  "resourceType": "workflow",
+  "resources": [
+    {
+      "id": "workflow:bug-fix",
+      "type": "workflow",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/workflows/bug-fix.md",
+      "targetPath": ".veaw/resources/workflows/bug-fix.md",
+      "tags": [
+        "workflow",
+        "bug",
+        "fix"
+      ],
+      "dependencies": [
+        "skill:bug-fix",
+        "agent:developer",
+        "agent:reviewer"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:28f5c3cade92a01c3d0ecc6cad5fee731d4816a5567e220f94cb36054ef1aa89"
+    },
+    {
+      "id": "workflow:component-catalog-maintenance",
+      "type": "workflow",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/workflows/component-catalog-maintenance.md",
+      "targetPath": ".veaw/resources/workflows/component-catalog-maintenance.md",
+      "tags": [
+        "workflow",
+        "component",
+        "catalog"
+      ],
+      "dependencies": [
+        "skill:component-catalog-maintenance"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:5892088178c7a58fa9a329be64327e70465188cd229ae53ded73d70d74cb5ce6"
+    },
+    {
+      "id": "workflow:component-intelligence",
+      "type": "workflow",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/workflows/component-intelligence.md",
+      "targetPath": ".veaw/resources/workflows/component-intelligence.md",
+      "tags": [
+        "workflow",
+        "component",
+        "intelligence"
+      ],
+      "dependencies": [
+        "skill:component-analysis",
+        "agent:component-analyst"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:e58917f68a204260472e2da151419473edc92d4d0565a594a2db2b8ff4c2cc17"
+    },
+    {
+      "id": "workflow:design-to-code",
+      "type": "workflow",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/workflows/design-to-code.md",
+      "targetPath": ".veaw/resources/workflows/design-to-code.md",
+      "tags": [
+        "workflow",
+        "design",
+        "code"
+      ],
+      "dependencies": [
+        "skill:design-analysis",
+        "agent:designer"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:8322fa3ce2cfca5e2027f527ea7542ec1b62daa202a4d4b9dd9deb0acf9774c0"
+    },
+    {
+      "id": "workflow:feature-development",
+      "type": "workflow",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/workflows/feature-development.md",
+      "targetPath": ".veaw/resources/workflows/feature-development.md",
+      "tags": [
+        "workflow",
+        "feature",
+        "development"
+      ],
+      "dependencies": [
+        "agent:architect",
+        "agent:developer",
+        "agent:reviewer"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:7285a857cd779656967899b8200876e25331e5027489c37550e31f7f5ce647eb"
+    },
+    {
+      "id": "workflow:project-onboarding",
+      "type": "workflow",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/workflows/project-onboarding.md",
+      "targetPath": ".veaw/resources/workflows/project-onboarding.md",
+      "tags": [
+        "workflow",
+        "project",
+        "onboarding"
+      ],
+      "dependencies": [
+        "skill:project-onboarding",
+        "template:project-profile",
+        "template:project-context"
+      ],
+      "enabledByDefault": true,
+      "copyPolicy": "reference",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:5676186cb8d1aed7dbf90aadeae362a0d0d91f06e6d3a500c62f026a695957c2"
+    }
+  ]
+}

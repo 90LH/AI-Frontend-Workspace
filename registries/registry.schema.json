@@ -1,0 +1,193 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://veaw.local/schemas/registry.schema.json",
+  "title": "VEAW Workspace Registry Schema",
+  "type": "object",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/workspaceRegistry"
+    },
+    {
+      "$ref": "#/$defs/resourceRegistry"
+    }
+  ],
+  "$defs": {
+    "workspaceRegistry": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "workspaceVersion",
+        "workspace",
+        "registries"
+      ],
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "schemaVersion": {
+          "type": "string"
+        },
+        "workspaceVersion": {
+          "type": "string"
+        },
+        "workspace": {
+          "type": "object",
+          "required": [
+            "id",
+            "name",
+            "rootMarker"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "rootMarker": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "registries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/registryEntry"
+          }
+        },
+        "compatibility": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "registryEntry": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "path",
+        "required"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "resourceRegistry": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "workspaceVersion",
+        "resourceType",
+        "resources"
+      ],
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "schemaVersion": {
+          "type": "string"
+        },
+        "workspaceVersion": {
+          "type": "string"
+        },
+        "resourceType": {
+          "type": "string"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/resource"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "resource": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "version",
+        "sourcePath",
+        "targetPath",
+        "tags",
+        "dependencies",
+        "enabledByDefault",
+        "copyPolicy",
+        "overwritePolicy",
+        "hash"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "sourcePath": {
+          "type": "string"
+        },
+        "targetPath": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "enabledByDefault": {
+          "type": "boolean"
+        },
+        "copyPolicy": {
+          "enum": [
+            "reference",
+            "copy",
+            "render",
+            "none"
+          ]
+        },
+        "overwritePolicy": {
+          "enum": [
+            "never",
+            "if-missing",
+            "managed-block",
+            "always"
+          ]
+        },
+        "hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
