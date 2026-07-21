@@ -76,7 +76,7 @@
     },
     {
       "id": "preset-rule:vue-admin-agents",
-      "type": "preset-rule",
+      "type": "preset",
       "version": "1.0.0",
       "sourcePath": "presets/vue-admin/AGENTS.md",
       "targetPath": ".veaw/resources/presets/vue-admin/AGENTS.md",
@@ -115,7 +115,7 @@
     },
     {
       "id": "preset-rule:vue-h5-agents",
-      "type": "preset-rule",
+      "type": "preset",
       "version": "1.0.0",
       "sourcePath": "presets/vue-h5/AGENTS.md",
       "targetPath": ".veaw/resources/presets/vue-h5/AGENTS.md",

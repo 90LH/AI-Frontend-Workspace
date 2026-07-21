@@ -34,7 +34,7 @@
         "analysis"
       ],
       "dependencies": [
-        "skill:component-analysis"
+        "core:agents"
       ],
       "enabledByDefault": true,
       "copyPolicy": "reference",
@@ -52,7 +52,7 @@
         "design"
       ],
       "dependencies": [
-        "skill:design-analysis"
+        "core:agents"
       ],
       "enabledByDefault": true,
       "copyPolicy": "reference",

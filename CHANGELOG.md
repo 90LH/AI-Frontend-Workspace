@@ -1,5 +1,150 @@
 # 更新日志（Changelog）
 
+# v1.14.0（2026-07-21）
+
+## ✨ 新增（Added）
+
+### 第一阶段上下文链路规范
+
+正式定义 Workspace 第一阶段上下文能力，包括：
+
+- Project Context
+- Component Catalog
+- AI Context Prompt
+- Executable Plan
+- Context Maintenance Template
+
+新增统一上下文模型，用于 CLI、Workspace 与未来 MCP 能力共享。
+
+### Context 模板增强
+
+新增稳定维护区域：
+
+- Architecture
+- Conventions
+- Decisions
+- Routing
+- Menu / Permission
+- Service Layer
+- Store
+- Component Boundary
+- Composable Boundary
+- i18n
+- Error Handling
+- Testing Convention
+
+自动检测内容与人工维护内容彻底分离。
+
+### Component Metadata
+
+扩展 Catalog Schema：
+
+- componentKind
+- category
+- isShared
+- usageHints
+- semanticDependencies
+- callers（可选）
+- usedBy（可选）
+
+保持既有 JSON Schema 向后兼容。
+
+## 🔧 改进（Changed）
+
+### Context 生成规则
+
+仅允许源码、配置及可验证信息进入：
+
+- 已确认事实
+
+推断内容统一进入：
+
+- 待维护者确认
+
+禁止自动生成虚构项目约定。
+
+### AI Prompt
+
+Prompt 定位调整为：
+
+> AI 上下文包
+
+不再作为 ask 命令默认输出。
+
+### Plan Resource
+
+Plan Resource 定位升级为：
+
+> 可执行研发计划
+
+替代原有实施模板。
+
+### Component Analysis
+
+优化 Vue SFC 分析：
+
+- 组件名称识别
+- Props 提取
+- Emits 提取
+- Slots 提取
+
+减少误识别：
+
+- CSS 常量
+- URL
+- 注释
+- 普通字符串
+- 导入变量
+
+## 🧪 验证（Validation）
+
+新增 Workspace 验收要求：
+
+- ask Answer 模式
+- ask Prompt 模式
+- Plan stdout 模式
+- Dry-run 零写入
+- Context 完整性
+- Catalog 回归测试
+
+所有能力均要求：
+
+- 非破坏性默认行为
+- 可验证输出
+- 可追溯证据来源
+
+## 🔒 兼容性（Compatibility）
+
+保持兼容：
+
+- 旧版 Workspace
+- CLI Assets Fallback
+- Legacy `.veaw`
+- project.json 自定义字段
+- Catalog Consumer
+
+默认行为保持零副作用。
+
+## 🚀 下一阶段规划
+
+完成第二阶段能力设计基础，包括：
+
+- Shared Context Schema
+- Screenshot Context
+- Component MCP
+- Design Context
+- Task Generator
+- Review Pipeline
+
+所有能力均支持：
+
+- 可组合
+- 可降级
+- 无外部 AI 强依赖
+- 默认 stdout
+- 显式输出文件
+- 可验证证据链
+
 ---
 
 # v1.13.0（2026-07-17）Workspace Registry 与 CLI 闭环

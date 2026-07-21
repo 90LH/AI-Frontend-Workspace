@@ -15,9 +15,7 @@
         "api",
         "typescript"
       ],
-      "dependencies": [
-        "skill:api-development"
-      ],
+      "dependencies": [],
       "enabledByDefault": true,
       "copyPolicy": "copy",
       "overwritePolicy": "if-missing",
@@ -34,9 +32,7 @@
         "catalog",
         "json"
       ],
-      "dependencies": [
-        "skill:component-catalog-maintenance"
-      ],
+      "dependencies": [],
       "enabledByDefault": true,
       "copyPolicy": "copy",
       "overwritePolicy": "if-missing",
@@ -53,9 +49,7 @@
         "component",
         "catalog"
       ],
-      "dependencies": [
-        "skill:component-catalog-maintenance"
-      ],
+      "dependencies": [],
       "enabledByDefault": true,
       "copyPolicy": "copy",
       "overwritePolicy": "if-missing",
@@ -91,13 +85,11 @@
         "project",
         "context"
       ],
-      "dependencies": [
-        "skill:project-onboarding"
-      ],
+      "dependencies": [],
       "enabledByDefault": true,
       "copyPolicy": "copy",
       "overwritePolicy": "if-missing",
-      "hash": "sha256:8ea8b0a6c7f040ba36a31de253d41ab75bc2d6542165d902fee9a2668d86174c"
+      "hash": "sha256:2920ae975a01df12a778b9386b5f519333122a3d63fa22be4cfccf3bc6b5fed7"
     },
     {
       "id": "template:project-profile",
@@ -111,9 +103,7 @@
         "profile",
         "json"
       ],
-      "dependencies": [
-        "skill:project-onboarding"
-      ],
+      "dependencies": [],
       "enabledByDefault": true,
       "copyPolicy": "copy",
       "overwritePolicy": "if-missing",
@@ -147,9 +137,7 @@
         "vue",
         "component"
       ],
-      "dependencies": [
-        "skill:component-create"
-      ],
+      "dependencies": [],
       "enabledByDefault": true,
       "copyPolicy": "copy",
       "overwritePolicy": "if-missing",
@@ -166,9 +154,7 @@
         "vue",
         "page"
       ],
-      "dependencies": [
-        "skill:vue-page-create"
-      ],
+      "dependencies": [],
       "enabledByDefault": true,
       "copyPolicy": "copy",
       "overwritePolicy": "if-missing",

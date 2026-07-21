@@ -6,7 +6,7 @@
   "resources": [
     {
       "id": "command:router",
-      "type": "command-router",
+      "type": "command",
       "version": "1.0.0",
       "sourcePath": ".veaw/commands/README.md",
       "targetPath": ".veaw/resources/commands/README.md",

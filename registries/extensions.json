@@ -29,7 +29,7 @@
     },
     {
       "id": "extension-guide:component-catalog-guidelines",
-      "type": "extension-guide",
+      "type": "extension",
       "version": "1.0.0",
       "sourcePath": "extensions/component-intelligence/catalog-guidelines.md",
       "targetPath": ".veaw/resources/extensions/component-intelligence/catalog-guidelines.md",
@@ -39,9 +39,7 @@
         "catalog",
         "guidelines"
       ],
-      "dependencies": [
-        "extension:component-intelligence"
-      ],
+      "dependencies": [],
       "enabledByDefault": false,
       "copyPolicy": "reference",
       "overwritePolicy": "if-missing",
@@ -49,7 +47,7 @@
     },
     {
       "id": "extension-template:component-catalog",
-      "type": "extension-template",
+      "type": "extension",
       "version": "1.0.0",
       "sourcePath": "extensions/component-intelligence/catalog-template.md",
       "targetPath": ".veaw/resources/extensions/component-intelligence/catalog-template.md",
@@ -59,9 +57,7 @@
         "catalog",
         "template"
       ],
-      "dependencies": [
-        "extension:component-intelligence"
-      ],
+      "dependencies": [],
       "enabledByDefault": false,
       "copyPolicy": "copy",
       "overwritePolicy": "if-missing",
@@ -69,7 +65,7 @@
     },
     {
       "id": "extension-guide:component-catalog-onboarding",
-      "type": "extension-guide",
+      "type": "extension",
       "version": "1.0.0",
       "sourcePath": "extensions/component-intelligence/project-catalog-onboarding.md",
       "targetPath": ".veaw/resources/extensions/component-intelligence/project-catalog-onboarding.md",
@@ -79,9 +75,7 @@
         "catalog",
         "onboarding"
       ],
-      "dependencies": [
-        "extension:component-intelligence"
-      ],
+      "dependencies": [],
       "enabledByDefault": false,
       "copyPolicy": "reference",
       "overwritePolicy": "if-missing",
