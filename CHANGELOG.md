@@ -1,5 +1,220 @@
 # 更新日志（Changelog）
 
+# v1.15.0（2026-07-21）
+
+## ✨ 新增（Added）
+
+### Development Context Schema
+
+新增统一研发上下文 Schema。
+
+包括：
+
+- screenshot-context
+- component-query-result
+- ui-component-context
+- design-context
+- task-list
+- review-result
+
+所有资源均支持机器可读及资源注册。
+
+---
+
+### Screenshot Context
+
+新增截图上下文资源。
+
+支持描述：
+
+- 页面
+- 路由
+- 来源
+- 采集时间
+- 视口
+- 权限状态
+- 引用截图
+
+截图仅支持用户显式提供或本地测试资源。
+
+---
+
+### Component Query
+
+新增组件查询资源。
+
+支持：
+
+- Catalog 查询
+- MCP 查询
+- 来源证据
+- 分类
+- Props
+- Emits
+- Slots
+- 示例
+- 使用建议
+- Dependencies
+
+---
+
+### UI Component Context
+
+新增截图与组件融合上下文。
+
+综合：
+
+- Screenshot Context
+- Catalog
+- MCP
+
+输出：
+
+- 候选组件
+- 匹配理由
+- API
+- 风险
+- 替代方案
+- 不确定项
+
+---
+
+### Design Context
+
+新增统一设计上下文。
+
+用于：
+
+- ask
+- plan
+- Task Generator
+- Review
+
+统一消费。
+
+---
+
+### Task List
+
+新增标准任务描述 Schema。
+
+统一：
+
+- Goal
+- Files
+- Dependencies
+- Verification
+- Done Definition
+- Risks
+
+---
+
+### Review Result
+
+新增统一 Review Schema。
+
+包括：
+
+- Findings
+- Evidence
+- Severity
+- Recommendation
+- Remaining Risks
+
+---
+
+## 🔧 改进（Changed）
+
+### Component Resource
+
+新增：
+
+- MCP 来源
+- Catalog 来源
+- 来源优先级
+- 去重规则
+
+优先推荐项目已有组件。
+
+---
+
+### Screenshot Processing
+
+截图分析仅保留：
+
+- 可观察结构
+- 布局
+- 控件类型
+- 层级
+- 状态
+- 间距
+- 尺寸特征
+
+禁止推断业务逻辑。
+
+---
+
+### Resource Registration
+
+Workspace Registry 支持：
+
+- Screenshot Resource
+- MCP Resource
+- Design Resource
+- Task Resource
+- Review Resource
+
+保持向后兼容。
+
+---
+
+## 🧪 验证（Validation）
+
+新增：
+
+- Screenshot Context Validation
+- MCP Adapter Validation
+- Component Merge Validation
+- Design Context Validation
+- Review Validation
+
+新增降级验证：
+
+- 无截图
+- 无 MCP
+- 鉴权失败
+- 空查询
+- Catalog Fallback
+
+确保研发上下文能力默认可降级。
+
+---
+
+## 🔒 兼容性（Compatibility）
+
+保持兼容：
+
+- Workspace Registry
+- Legacy `.veaw`
+- CLI Assets Fallback
+- 第一阶段 Context
+- Component Catalog
+
+所有新增能力均为可选能力。
+
+---
+
+## 🚀 下一阶段规划
+
+完成研发上下文能力，为后续能力提供统一基础：
+
+- Context Orchestrator
+- AI Coding Pipeline
+- Design-to-Code
+- Multi-Provider Context
+- Intelligent Review
+- Multi-MCP Integration
+
 # v1.14.0（2026-07-21）
 
 ## ✨ 新增（Added）

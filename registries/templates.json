@@ -56,6 +56,24 @@
       "hash": "sha256:a67ca397d816e99f70bed05d4e0fec6203aa87cf6c4550da9f09e72adc4eea50"
     },
     {
+      "id": "template:context-schemas",
+      "type": "template",
+      "version": "1.0.0",
+      "sourcePath": "core/ai/templates/context-schemas.json",
+      "targetPath": ".veaw/resources/templates/context-schemas.json",
+      "tags": [
+        "template",
+        "schema",
+        "context",
+        "phase-two"
+      ],
+      "dependencies": [],
+      "enabledByDefault": true,
+      "copyPolicy": "copy",
+      "overwritePolicy": "if-missing",
+      "hash": "sha256:612aa8d648cfdccb38c526cb4c9335c0ceb26beaed216fb809aa7ba0e09bc5ce"
+    },
+    {
       "id": "template:composable",
       "type": "template",
       "version": "1.0.0",
